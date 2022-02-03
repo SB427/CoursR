@@ -1,0 +1,310 @@
+---
+title: "Études qualitatives sur le web - Séance 3"
+author: "SB"
+date: "21/10/2020"
+output:
+  html_document:
+    toc: true
+    number_sections: true
+---
+
+```{r setup, include=TRUE,message = FALSE,warning = FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE)
+library(readxl)
+library(tidyverse)
+library(quanteda)
+library(quanteda.textstats)
+library(quanteda.textplots)
+library(RColorBrewer)
+library(reshape2) #pour la manipulation des données
+
+```
+
+# Les données
+
+```{r data, warning=FALSE}
+data<-read_excel("data_airbnb_sample.xlsx", 
+    col_types = c("numeric", "numeric", "numeric", 
+        "numeric", "numeric", "date", "numeric", 
+        "text", "text", "numeric", "text", 
+        "numeric"))
+
+```
+
+# Les dépendances syntaxiques
+
+Quels sont les mots associés aux termes cibles ?
+
+```{r}
+annotate<-read_rds("annotation_Airbnb.rds")
+
+ggplot(annotate,aes(x=relation))+geom_bar()+coord_flip()
+
+#on met à niveau la racine
+ann_racine<- annotate%>%
+  left_join(annotate,by= c("doc_id"="doc_id", "sid"="sid", "tid_source"="tid"), suffix=c("", "_source"))
+#on filtre les relation nominales puis celle qui concerne les termes cibles
+foo<-ann_racine %>%
+  filter(relation == "amod"|relation =="acl"|relation =="nmod"|relation =="appos") %>%
+  select(doc_id = doc_id, start = lemma, word = lemma_source)%>%
+    filter(word=="hôte"|word=="appartement"|word=="quartier"|word=="séjour",start!="Alice", start!="l’")%>% 
+  group_by(word,start)%>%
+  mutate(n=1)%>%
+  summarise(n=sum(n))
+# On remet en forme les données
+foo1<-dcast(foo, start ~  word)
+foo1[is.na(foo1)] = 0
+
+foo1$sum<- rowSums( foo1[,2:5])
+foo1<-foo1 %>% filter(sum>3) %>%select(-sum)
+foo1<-melt(foo1)
+
+
+ggplot(foo1,aes(x=reorder(start,value), y=value, group=variable))+
+  geom_bar(stat="identity",aes(fill=variable),position=position_dodge())+
+  coord_flip()+
+  scale_fill_brewer(palette="Spectral",direction = -1)+
+  theme_minimal()+ 
+  labs( title="Analyse des dépendances nominales", subtitle = "les termes de l'hôte et de la chambre", x="tokens dépendants", y="Fréquence", fill="Termes")+facet_wrap(vars(variable), ncol = 4)
+```
+
+
+
+# *Sentiment analysis*
+
+On va réaliser une analyse du sentiment du corpus. Pour cela, on utilise le dictionnaire des sentiments et émotions NRC, car il est disponible dans 40 langues, dont le français. Il existe d'autres dictionnaires de sentiments (positif vs négatif), par exemple AFINN ou BING, ainsi que des dictionnaires thématiques (LIWC par exemple), mais ils sont en anglais, donc utilisables pour des corpus en anglais.
+
+Ici, on utilise le dictionnaire NRC à travers le package *syuzhet*. La fonction *get_nrc_sentiment* prend en entrée un vecteur de type caractère.
+
+```{r annot_sent}
+library(syuzhet)
+
+
+d<-get_nrc_sentiment(data$comments, language = "french")
+summary(d, digits=0)
+data<-cbind(data,d)
+
+data[600,]
+
+```
+
+Le dictionnaire comprend 10 variables, 8 émotions et 2 sentiments. Pour représenter les données, nous avons besoin de les transformer.
+
+```{r viz_nrc}
+e<-melt(d, variable.name = "sentiment", value.name = "nb")
+
+ggplot(e, aes(sentiment, nb))+
+  geom_col(aes(fill=sentiment),show.legend = FALSE)+
+  theme_minimal()+
+  coord_flip()
+```
+
+## Les sentiments 
+
+Intéressons-nous d'abord aux sentiments :
+
+```{r viz_sent}
+sent<-subset(d, select=c(positive, negative))
+
+
+sent2<-tibble(sentiment=c("positive", "negative"),   nb=c(sum(sent$positive), sum(sent$negative)))%>%
+  mutate(prop=round( nb/sum(nb)*100, 2))
+
+ggplot(data=sent2,  aes(x=sentiment, y=prop)) + 
+  geom_bar(stat="identity", aes(fill=sentiment), show.legend = FALSE) +
+  xlab("Sentiments") + 
+  ylab("%")+
+  ggtitle("Répartition des sentiments dans le corpus Airbnb")+
+  scale_fill_manual(values=c("red", "lightgreen"))+
+  theme_light()
+```
+
+
+Le corpus est très largement positif, ce qui n'est pas étonnant. On peut aussi créer d'autres indicateurs, comme la valence (différence positif-négatif) ou l'expressivité (somme de positif+négatif). 
+
+**Exercice :** personnalisez le graphique ci-dessous pour la variable d'expressivité.
+
+```{r viz_expr}
+
+data<-data%>%
+  mutate(valence = positive-negative)
+
+ggplot(data = data, aes(x = valence, y= nbcar))+
+  geom_point()+
+  geom_smooth()+
+  labs(title="Mon titre", subtitle = "sous-titre", caption="caption")
+
+```
+
+
+
+## Les émotions
+
+Regardons maintenant ce qu'il en est de la répartition des émotions :
+
+```{r viz_emo}
+#On crée d'abord une palette pour les émotions
+emocol<-c("yellow","chartreuse","olivedrab3","green4","royalblue3","purple3","red3","orangered1") 
+
+#On récupère les émotions
+emo<-subset(d,select=-c(positive, negative))
+summary(emo)
+
+
+#On transforme le tableau
+# tibble(emotion=variable.names(emo), nb=apply(emo,2, sum))
+
+emo2<-tibble(emotion=variable.names(emo), nb=c(sum(emo$anger),sum(emo$anticipation), sum(emo$disgust), sum(emo$fear), sum(emo$joy), sum(emo$sadness), sum(emo$surprise), sum(emo$trust)))%>%
+  mutate(prop=nb/sum(nb)*100,
+       emotion=factor(emotion, ordered = TRUE,levels = c("joy","trust","fear","surprise","sadness","disgust","anger","anticipation")))
+
+#On crée un graphique circulaire
+ggplot(data=emo2,  aes(x=emotion, y=prop, colour=emotion)) + 
+  geom_bar(stat="identity", aes(fill=emotion), show.legend = FALSE)+ 
+  xlab("Emotions") + 
+  ylab("%") + ggtitle("Distribution des émotions \n dans le corpus Airbnb")  + 
+  coord_polar()+ 
+  scale_color_manual(values=emocol)+ scale_fill_manual(values=emocol)+
+  theme_minimal()
+
+
+#On regarde la réprtition des émotions dans le corpus :
+emo3<-melt(emo)
+emo3$variable<-factor(emo3$variable, ordered = TRUE,levels = c("joy","trust","fear","surprise","sadness","disgust","anger","anticipation"))
+ggplot(na.omit(emo3), aes(x=variable, y=value))+
+  geom_violin(aes(fill=variable), alpha=0.7,adjust = 2)+theme_minimal()+ scale_fill_manual(values=emocol)+
+  scale_x_discrete(labels=NULL)
+```
+
+# Évolution du corpus dans le temps
+
+On va regarder comment les sentiments évoluent dans le temps. On doit tout d'abord créer une variable temporel dans notre jeu de données. Nous en avons déjà une, qui indique la date et l'heure à laquelle le commentaire a été posté. Nous allons la transformer pour regrouper les commentaires en fonction de l'année (on peut le faire pour les jours, les mois, les minutes, ...). On utilise le package *lubridate*.
+
+```{r year}
+library(lubridate)
+
+data$year<-year(data$date)
+
+data%>%group_by(year)%>%summarise('nb com'=n())
+
+```
+
+Regardons maintenant comment évolue les sentiments dans le temps :
+
+```{r viz_sent_year}
+
+data$year<-as.factor(data$year)
+names(data)
+
+gen_sent<-data%>%group_by(year)%>%summarise(across(13:20,~mean(.x, na.rm = T)))%>%na.exclude()
+
+# gen_sent <-data%>%na.exclude()%>% group_by(year)%>%summarise(joy=mean(joy,na.rm = TRUE),
+#                                                  trust=mean(trust,na.rm = TRUE),
+#                                                  fear=mean(fear,na.rm = TRUE), 
+#                                                  surprise=mean(surprise,na.rm = TRUE), 
+#                                                  sadness=mean(sadness,na.rm = TRUE), 
+#                                                  disgust=mean(disgust,na.rm = TRUE),
+#                                                  anger=mean(anger,na.rm = TRUE),
+#                                                  anticipation=mean(anticipation,na.rm = TRUE))
+
+gen_sent<-melt(gen_sent, by=year)
+
+ggplot(gen_sent,aes(x=year, y=value,group=variable)) +
+  geom_line(aes(color=variable), size=0.5) + 
+  theme_minimal()+
+  scale_color_manual(values = emocol)
+```
+
+Maintenant, on va s'intéresser aux mots.
+
+# Nuage de mots comparés
+
+## En fonction des années
+
+On refait les manipulations préliminaires :
+
+```{r init}
+data2<-data%>%filter(!is.na(year))
+
+corpus_airbnb<-corpus(data2, text_field = "comments")
+
+tok<-tokens(corpus_airbnb, remove_punct = TRUE, remove_numbers = TRUE, remove_symbols = TRUE)%>%
+  tokens_remove(stopwords("fr"))
+
+dfm<-dfm(tok)
+
+```
+
+Comparons les mots en fonction des années :
+
+```{r wc_year}
+
+dfmgp<-dfm_group(dfm, groups = year)
+
+#On peut aussi passer la fonction directement en transformant en dfm avec l'option groups : dfm(tok, groups="year")
+
+textplot_wordcloud(dfmgp, comparison=TRUE, max_words = 200)
+
+```
+
+
+## En fonction des sentiments
+
+Pour comparer en fonction des sentiments, il faut accéder au dictionnaire NRC (en français) (il y a des fonctions simplifiées pour les dictionnaires en anglais) :
+
+```{r comp_sent}
+dic_nrc<-read_xlsx("NRCfr.xlsx")%>%
+gather(-word,key=sentiment, value=value)%>%
+filter(value==1, word!="NO TRANSLATION")%>%
+select(-value)
+
+
+d<-broom::tidy(dfm)
+
+sent<-inner_join(d,dic_nrc, by=c("column"="word"))
+
+sent<-sent%>%group_by(sentiment)%>%count(column, sort=T)%>%ungroup()
+
+sent %>%
+  group_by(sentiment) %>%
+  top_n(10) %>%
+  ungroup() %>%
+  mutate(term = reorder(column, n))%>%
+  ggplot(aes(term, n, fill = sentiment)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~sentiment, scales = "free_y") +
+  labs(y = "Contribution to sentiment",
+       x = NULL) +
+  coord_flip()+
+  theme_minimal()
+
+```
+
+
+# Mesure de l'antagonisme
+
+On utilise le modèle wordfish qui permet, à partir de l'occurrence des mots, d'opposer les textes selon un unique axe. Voyons voir ce que cela donne :
+
+```{r wordfish}
+library(quanteda.textmodels)
+
+wf <- textmodel_wordfish(dfmgp)
+summary(wf)
+
+textplot_scale1d(wf)+
+theme(text = element_text(size=15))+
+ggtitle("Répartition des années")
+
+textplot_scale1d(wf, margin = "features",
+groups = "year",
+highlighted = c("appartement","chambre","métro","douche","cuisine"))+
+theme(text = element_text(size=15))+
+ggtitle("Répartition des tokens")
+
+```
+
+
+

@@ -1,0 +1,306 @@
+---
+title: "Études qualitatives sur le web - Séance 4"
+author: "SB"
+date: "21/10/2020"
+output:
+  html_document:
+    toc: true
+    number_sections: true
+---
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+library(readxl)
+library(tidyverse)
+library(quanteda)
+library(quanteda.textstats)
+library(quanteda.textplots)
+library(RColorBrewer)
+#library(quanteda.textmodels)
+library(reshape2)
+
+```
+
+# Les données
+```{r data, warning=FALSE}
+data<-read_excel("data_airbnb_sample.xlsx", 
+    col_types = c("numeric", "numeric", "numeric", 
+        "numeric", "numeric", "date", "numeric", 
+        "text", "text", "numeric", "text", 
+        "numeric"))
+
+```
+
+# Mesures de fréquence
+
+On s'est pour l'instant intéressé uniquement aux termes les plus fréquents dans un corpus. On a vu comment éliminer les termes trop fréquents pour qu'ils nous apportent de l'information. Pour l'analyse de topics, il nous faut prendre un autre angle d'attaque : afin de détecter les sujets abordés dans un corpus, on ne peut se contenter d'observer les mots les plus fréquents, il faut s'intéresser aux termes dont la fréquence dans l'ensemble du corpus est faible, mais qui contribuent fortement à différencier les éléments du corpus entre eux (les documents). On utilise pour cela une mesure de fréquence pondérée : la *tf-idf* pour *term frequenccy - inverse document frequency* qui permet d'accorder plus de poids aux termes les plus discriminants du corpus.
+$tf-idf= \frac{occurrence\ du\ mot\ dans\ le\ document }{nombre\ de\ mots\ dans \ le \ document}* log (\frac{nombre\ de\ documents\ dans\ le\ corpus} {nombre\ de \ documents\ dans\ lequel\ le\ mot\ apparait})$
+
+
+## Pondération tf-idf
+
+On commence par reprendre nos manipulations précédentes : création de corpus, élimination des stopwords, constitution de bi- ou tri- grammes. On applique ensuite la pondération tf-idf.
+
+```{r tf-idf, warning=FALSE}
+
+corpus_airbnb<-corpus(data, text_field = "comments")
+
+tok<-tokens(corpus_airbnb, remove_punct = TRUE, remove_numbers = TRUE, remove_symbols = TRUE)%>%
+  tokens_remove(stopwords("fr"))
+
+colloc<-textstat_collocations(tok, min_count = 10, tolower = TRUE)
+
+tok<-tokens_compound(tok, pattern = colloc[colloc$z>3])
+
+
+dfm<-dfm(tok)
+
+
+dfmtfidf<-dfm_tfidf(dfm)
+
+dfmtfidf
+
+
+#Représentations graphiques
+a<-textplot_wordcloud(dfm, max_words = 200)
+b<-textplot_wordcloud(dfmtfidf, max_words = 200)
+
+
+
+#On filtre les mots trop fréquents
+
+dfm<-dfm_trim(dfm, max_termfreq = 200)
+
+dfmtfidf<-dfm_tfidf(dfm)
+
+textplot_wordcloud(dfm, max_words = 200)
+textplot_wordcloud(dfmtfidf, max_words = 200, color = brewer.pal(6, "Set2"))
+
+display.brewer.all()
+
+```
+
+# *Topics Analysis*
+
+On va maintenant s'intéresser à la détection et à l'analyse de topics. Il existe de nombreux algorithmes pour cela. On va en explorer un : le modèle LDA, pour Latent Dirichlet Allocation.
+
+* Description du modèle LDA : 
+
+L'idée est la suivante : un corpus est considéré comme une collection de documents. Chaque document est considéré comme étant composé d’un mélange de topics. Chaque topic est considéré comme étant composé d’un mélange de tokens. L’algorithme calcule par itération les probabilités d’appartenance des tokens aux topics et des topics aux documents, ce qui nous permet de visualiser la composition des sujets identifiés.
+
+![Le modèle LDA](lda.png)
+
+## Le modèle LDA avec topicmodels
+
+On travaille à partir du dfm. On doit transformer le format des données afin de l'injecter dans le modèle. On réduit le nombre de termes considérés, ce qui permet de réduire les temps de calcul et de trouver une solution convergente.
+
+
+```{r lda}
+#On filtre les mots trop et trop peu fréquents
+rem<-c("très","bien","appartement","a", "séjour", "l'appartement", "situé", "agréable", "calme", "tout", "quartier")
+
+news_dfm <- dfm %>%
+  dfm_remove(rem)%>%
+  dfm_trim(min_termfreq = 0.8, termfreq_type = "quantile",    # 5% des mots les plus fréquents
+           max_docfreq = 0.2, docfreq_type = "prop")          #qui apparaissent dans max 20% des documents
+
+#On supprime les entrées vides
+news_dfm <- news_dfm[ntoken(news_dfm) > 0,]
+
+#On transforme en dtm, un format compris par le package topicsmodel
+dtm <- convert(news_dfm, to = "topicmodels")
+
+#On lance le modèle
+library(topicmodels)
+lda <- LDA(dtm, k = 3)
+
+terms(lda,10)
+# topics(lda)
+
+corpus_airbnb["text976"]
+corpus_airbnb["text977"]
+corpus_airbnb["text980"]
+
+data[976,9]
+
+```
+
+## Déterminer le nombre de topics optimal
+
+Le modèle LDA fonctionne à partir d'un nombre de topics donné. La question est donc de savoir quel est le nombre de topics optimal pour décrire notre corpus. Heureusement, des personnes ont créé des fonctions et des procédures pour nous aider dans cette quête. L'idée est de calculer différents modèles pour différents nombres de topics, et de comparer la qualité des résultats.
+La procédure ci-dessous est en deux parties :
+
+* Tout d'abord, on compare la qualité de différents indicateurs sur un grand nombre de modèles, pour aboutir à une liste de quelques solutions à comparer plus en détail (de 3 à 10).
+
+* Ensuite, on compare les résultats de la liste réduite de modèles, pour déterminer lequel a la meilleure distribution des topics entre les documents. La distribution recherchée est celle qui distingue le plus les documents en fonction des topics, tout en étant à droite de l’estimation d’une répartition uniforme des documents entre les topics. Le critère de parcimonie nous invite à choisir la solution avec le moins grand nombre de topics, en cas de résultats comparables.
+
+```{r proc_topic}
+##Etape 1 : les meilleures solutions
+library(ldatuning)
+library(magrittr)
+
+result <- FindTopicsNumber(dtm,
+                           topics = c(seq(from = 2, to = 9, by = 1), seq(10, 25, 5)),
+                           metrics = c("Griffiths2004", "CaoJuan2009", "Arun2010", "Deveaud2014"),
+                           method = "Gibbs",
+                           control = list(seed = 0:4,
+                                          nstart = 5,
+                                          best = TRUE),
+                           mc.cores = 4L,
+                           verbose = TRUE
+                           )
+
+FindTopicsNumber_plot(result)
+
+
+##Etape 2 : comparaison des solutions
+para <- tibble(k = c(3,5,6,8))
+
+system.time(
+  lemma_tm <- para %>%
+    mutate(lda = map(k,
+                     function(k) LDA(
+                       k=k,
+                       x=dtm,
+                       method="Gibbs",
+                       control=list(seed = 0:4,
+                                    nstart = 5,
+                                    best = TRUE)
+                       )
+                     )
+           )
+  )
+lemma_tm <- lemma_tm %>%
+  mutate(lda_gamma = map(.x=lda,
+                         .f=tidytext::tidy,
+                         matrix="gamma"))
+lemma_tm %>%
+  unnest(lda_gamma) %>%
+  group_by(k, document) %>%
+  arrange(desc(gamma)) %>%
+  slice(1) %>%
+  #top_n(1, gamma) %>%
+  ungroup() %>%
+  ggplot(aes(x=gamma, fill=factor(k))) +
+  geom_histogram(bins = 20) +
+  scale_fill_discrete(name = "Number of\nTopics") +
+  xlab("maximum gamma per document") +
+  facet_wrap(~k) +
+  geom_vline(aes(xintercept = 1/k),
+             tibble(k=lemma_tm %$% unique(k)),
+             color="darkred")
+
+
+```
+
+## Représentation graphique
+
+À partir de la solution retenue aux étapes précédentes, on va représenter les différents topics :
+
+```{r lda_graph, message=FALSE}
+set.seed(1234)     #pour la réplicabilité des résultats
+lda <- LDA(dtm, k = 5)
+
+lda_res<-as.data.frame(terms(lda, 25))%>%
+  mutate(rank=as.numeric(row.names(.)))%>%
+  melt(id.vars=c("rank"))
+
+ggplot(lda_res, aes(x=variable, y= rank, group =  value , label = value)) + 
+  scale_y_reverse() +
+  geom_text(aes(color=variable,size=8/log(rank)))+
+  theme_minimal()+
+  scale_color_hue()+
+  guides(color=FALSE,size=FALSE)
+
+
+```
+
+
+# *Topic Analysis* à partir de l'annotation des *part of speech*
+
+```{r}
+
+ann_token<-read_rds("annotation_Airbnb.rds")
+
+
+new_text<-ann_token%>%filter(upos=="NOUN"|upos=="VERB"|upos=="ADJ")%>%group_by(doc_id)%>%summarise(text=paste(lemma,collapse = " "))
+
+corpus_new<-corpus(new_text)
+toks<-tokens(corpus_new)
+
+colloc<-textstat_collocations(toks, min_count = 10, tolower = TRUE)
+
+toks<-tokens_compound(toks, pattern = colloc[colloc$z>6])
+
+
+dfm_new<-dfm(toks)%>%
+  dfm_trim(min_termfreq = 0.6, termfreq_type = "quantile",
+           max_docfreq = 0.1, docfreq_type = "prop")
+dtm_new <- convert(dfm_new, to = "topicmodels")
+
+set.seed(1234)
+lda <- LDA(dtm_new, k = 5)
+
+term<-as_tibble(terms(lda,25))%>%
+  rename(nom1='Topic 1',nom2='Topic 2', nom3='Topic 3', nom4='Topic 4', nom5='Topic 5' )%>%
+  mutate(rank=as.numeric(row.names(.)))%>%
+  melt(id.vars=c("rank"))
+
+ggplot(term, aes(x=variable, y= rank, group =  value , label = value)) + 
+  scale_y_reverse() +
+  geom_text(aes(color=variable,size=8/log(rank)))+
+  theme_minimal()+
+  scale_color_hue()+
+  guides(color=FALSE,size=FALSE)
+
+```
+
+# *Theory-Driven LDA*
+
+Ici, on va forcer les *topics* grâce à la réalisation d'un dictionnaire. C'est utile quand on cherche à appliquer une théorie qui nous dit ce que l'on cherche à trouver. Par exemple, ici on s'intéresse aux attributs clés des logements Airbnb. Dans d'autre cas, on pourra chercher à expliquer les notes en fonction de *topics* qui reflètent les attributs clés. On peut réaliser le dictionnaire a priori ou après différentes analyses de *topics*, de co-occurences, de fréquence, etc.
+
+On commence par créer un dictionnaire.
+
+```{r dict}
+
+dict<-dictionary(list(quartier=c("quartier", "*sit*","commerce*","transport*"),
+                      accueil="accueil*",
+                      logement=c("chambre","logement","studio"),
+                      séjour="séjour"
+                      ))
+dict
+head(dfm_lookup(dfm,dict))
+```
+On utilise ensuite le package 'seededlda' pour lancer le modèle semi-supervisé.
+
+```{r seededlda}
+library(seededlda)
+
+set.seed(1234)
+slda<-textmodel_seededlda(news_dfm, dict, residual = T)
+terms(slda,20)
+
+```
+
+Et si on veut expliquer les notes :
+
+```{r note}
+
+theta<-as.data.frame(slda$theta)%>%mutate(doc_id=row.names(.))
+
+new_text<-new_text%>%mutate(doc_id=paste0("text",doc_id))
+new_text<-inner_join(new_text, theta)
+
+new_text<-new_text%>%mutate(note=sample.int(5,nrow(.), replace=T))
+
+foo<-new_text%>%select(-doc_id,-text)%>%
+  melt(id="note")
+
+ggplot(foo,aes(x=note, y=value, group=variable))+
+  geom_bar(position="fill",stat="identity", aes(fill=variable))+
+  scale_fill_brewer(palette="Spectral")+
+  theme_minimal()
+
+```
+
+
