@@ -1,0 +1,200 @@
+---
+title: "Analyses qualitatives avec R"
+author: "SB"
+date: "03/09/2020"
+output:
+  html_document:
+    toc: true
+    number_sections: true
+---
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+library(readxl)
+library(tidyverse)
+library(quanteda)
+library(quanteda.textstats)
+library(quanteda.textplots)
+```
+
+# Introduction
+
+Dans un premier temps, nous allons tout simplement chargé la base de données de travail, puis la décrire. Ensuite, nous créerons un corpus, le visualisons. Puis nous effectueront quelques analyses liminaires, avant de voir les pré-traitements à réaliser sur le corpus.
+
+## Les données
+```{r data}
+#On charge les données, stockées dans un fichier csv
+data<-read_excel("data_airbnb_sample.xlsx")
+
+#Résumé des données
+summary(data)
+data$nbcar<-nchar(data$comments)
+summary(data$nbcar)
+```
+
+## Premières observations du corpus
+
+Tout d'abord, nous transformons le jeu de données en corpus. La variable qui contient le texte est "comments", les autres variables vont devenir des métadonnées du corpus, c'est-à-dire des variables associées à chaque texte. Cela sera utile par le suite pour faire des analyses comparatives entre les textes suivant différentes variables (le temps en particulier, mais pas seulement).
+
+```{r 0_corpus}
+#Création du corpus
+corpus_airbnb<-corpus(data, text_field = "comments")
+corpus_airbnb
+corpus_airbnb["text600"] #pour visualiser un texte précis
+```
+
+Ensuite, nous allons extraire de chaque texte les termes qui les composent. Ces termes sont nommés "token" (jeton), et comme vous pouvez le voir, ce ne sont pas uniquement des mots, mais tout caractère ou suite de caractères séparés des autres par un espace.
+
+```{r 0_tokens}
+#Extraction des tokens
+tok<-tokens(corpus_airbnb)
+tok["text600"]
+```
+
+Chaque texte est maintenant décomposé en une suite de tokens. Pour voir les termes les plus fréquents dans le corpus, ainsi que leur co-occurrences (apparition de deux termes en même temps), il convient de transformer l'objet tok en une matrice termes-documents. En ligne, tous les tokens identifiés, en ligne, tous les textes du corpus, et les valeurs correspondent au nombre d'occurrences (d'apparitions) de chaque token dans chaque document. Une particularité de cette matrice est qu'elle contient énormément de zéro.
+
+```{r 0_dfm}
+#Transformation en document-term frequency matrix
+dfm<-dfm(tok)
+dfm
+```
+
+Enfin, nous pouvons avoir un aperçu des termes les plus fréquents. Nous les visualisons d'abord sous forme de tableau (les 20 tokens les plus fréquents), puis sous la forme d'un nuage de mots, où la taille des mots correspond à leur fréquence dans le corpus.
+
+```{r 0_viz}
+#Visualisation des termes les plus fréquents
+textstat_frequency(dfm, n=20) #les 20 premiers termes les plus fréquents
+textplot_wordcloud(dfm) #nuage de mots
+```
+
+Pour conclure sur cette première approche du corpus, nous voyons que nos analyses sont gếnées par la présence de la ponctuation et de plein de petits mots "vides de sens" (les articles par exemple). C'est pourquoi nous allons nettoyer le corpus pour avoir une meilleure vision de ce qu'il contient.
+
+# Nettoyage du corpus
+
+Le nettoyage du corpus pour les analyses se fait lors de la transformation en tokens. Nous allons ajouter des options pour supprimer la ponctuation, les chiffres et les stopwords (les mots qui n'apportent pas de sens sémantique mais permettent l'articulation du discours).
+
+```{r 1_tok}
+
+tok<-tokens(corpus_airbnb, remove_punct = TRUE, remove_numbers = TRUE)%>%
+  tokens_remove(stopwords("fr"))
+tok
+```
+
+Ensuite, on transforme en dfm et on visualise ce que ça donne.
+
+```{r 1_dfm}
+dfm<-dfm(tok)
+
+textstat_frequency(dfm, n=20)
+textplot_wordcloud(dfm)
+
+g<-textstat_frequency(dfm,n=20)
+ggplot(g, aes(x = feature, y=frequency))+
+  geom_col()+
+  coord_flip()
+
+g<-g%>%mutate(feature = factor(feature, levels = rev(unique(feature))))%>%
+  mutate(color = cut(frequency, breaks = 5,dig.lab = -1))
+ggplot(g, aes(x = feature, y=frequency, fill=color))+
+  geom_col(show.legend = FALSE)+
+  coord_flip()
+
+```
+
+Globalement, l'appartement et le séjour sont TRÈS bien et agréable. La surreprésentation de ces termes dans le corpus nous empêche de voir les thématiques abordées de manière moins évidentes. Nous avons plusieurs solutions qui s'offrent à nous : filtrer les mots trop fréquents du corpus ou nous intéresser à une autre mesure de la fréquence d'apparition. Nous allons d'abord filtrer le corpus.
+
+On peut aussi vouloir remplacer des termes par d'autres, comme ici "l'appartement" par "appartement".
+
+```{r tok_replace}
+
+tok<-tokens_replace(tok, "l\'appartement", "appartement")
+dfm<-dfm(tok)
+textstat_frequency(dfm, n=20)
+
+```
+
+
+# Filtrer le coprus des termes trop fréquents
+
+Nous allons filtrer les mots qui sont présents plus de 200 fois dans le corpus.
+
+```{r 1_filter}
+
+dfm_trim<-dfm_trim(dfm, max_termfreq = 200)
+
+textstat_frequency(dfm_trim, n=20)
+textplot_wordcloud(dfm_trim, max_words = 100, color = rev(RColorBrewer::brewer.pal(10, "RdBu")))
+
+```
+
+Une autre manière de s'y prendre est d'éliminer directement les termes que l'on ne veut pas voir apparaître.
+
+```{r 1_filter2}
+textstat_frequency(dfm,n=20)
+rem<-c("très","bien","appartement","a", "séjour", "l'appartement", "situé", "agréable", "calme", "tout", "quartier")
+
+dfm_rem<-dfm_remove(dfm, rem)
+textstat_frequency(dfm_rem, n=20)
+```
+
+
+
+# La loi de Zipf
+
+Vérifions la proposition de la loi de Zipf, selon laquelle la fréquence d'apparition d'un terme est inversement proportionnel à son rang.
+
+```{r zipf_law}
+zipf<-textstat_frequency(dfm)
+ggplot(zipf, aes(rank, frequency))+
+  geom_line()+
+   scale_x_log10() +
+  scale_y_log10()+
+  theme_light()+
+  labs(title = "Observation de la loi de Zipf",x="log (rang)",y="log (fréquence)")
+```
+
+# Comprendre le sens des termes
+
+On peut visualiser un ou plusieurs termes dans leur contexte, afin d'avoir une meilleure compréhension de leur sens. Pour cela on utilise la fonction "kwic" pour key word in context, à partir de l'objet tokens :
+
+```{r 1_kwic}
+
+kwic(tok, c("cuisine", "douche"))
+# kwic(tok, "très", window=10)
+
+```
+
+# Fabriquer un corpus directement via R
+
+Il existe différentes méthodes pour constituer un corpus : on peut en récolter des existants directement en ligne (ex: [InsideAirbnb](https://insideairbnb.com)), utiliser la bonne vieille méthode du copier-coller, ou encore utiliser des programmes informatiques, appelés scraper (ex : [DataMiner](https://data-miner.io/) ou [ParseHub](https://www.parsehub.com/)). On peut aussi en constituer directement via R. 
+
+Pour constituer un corpus directement via R, on utilise les API proposés par deux plateformes, Twitter et Facebook. On ne fait pas tourner le code, c'est un peu long et il faut disposer d'un compte développeur sur chacune des deux plateformes.
+
+```{r twittR}
+
+# library(rtweet)
+# 
+# x<-c("#Etam") #les termes cibles
+# 
+# tweets <- search_tweets(x,n=200000,retryonratelimit = TRUE)
+# 
+# write_rds(tweets, "mon_nom_de_fichier.rds")
+
+```
+
+```{r facebookR}
+
+# library(Rfacebook)
+# 
+# fb_connection <-   fbOAuth(app_id     = "your_app_id",
+#                        app_secret = "your_app_secret")
+# fb_connection
+# 
+# 
+# page<-getPage("Etam", token=fb_connection)
+#
+#write_rds(page, "mon_nom_de_fichier.rds")
+
+```
+
+
