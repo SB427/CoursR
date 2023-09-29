@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sophie Balech">
+<meta name="dcterms.date" content="2023-09-20">
+
+<title>Etudes qualitatives sur le web</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="EQW_cours4_23_files/libs/clipboard/clipboard.min.js"></script>
+<script src="EQW_cours4_23_files/libs/quarto-html/quarto.js"></script>
+<script src="EQW_cours4_23_files/libs/quarto-html/popper.min.js"></script>
+<script src="EQW_cours4_23_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="EQW_cours4_23_files/libs/quarto-html/anchor.min.js"></script>
+<link href="EQW_cours4_23_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="EQW_cours4_23_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="EQW_cours4_23_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="EQW_cours4_23_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="EQW_cours4_23_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="EQW_cours4_23_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="EQW_cours4_23_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+
+
+</head>
+
+<body>
+
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <div class="quarto-title-block"><div><h1 class="title">Etudes qualitatives sur le web</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+            <p class="subtitle lead"><em>Topics Analysis</em> et analyse de profils</p>
+                      </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author">Sophie Balech </p>
+    </div>
+      <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              IAE Amiens - Université Picardie Jules Verne
+            </p>
+        </div>
+      </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 20, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#les-données" id="toc-les-données" class="nav-link active" data-scroll-target="#les-données"><span class="header-section-number">1</span> Les données</a></li>
+  <li><a href="#topics-analysis" id="toc-topics-analysis" class="nav-link" data-scroll-target="#topics-analysis"><span class="header-section-number">2</span> <em>Topics Analysis</em></a>
+  <ul class="collapse">
+  <li><a href="#le-modèle-lda-avec-topicmodels" id="toc-le-modèle-lda-avec-topicmodels" class="nav-link" data-scroll-target="#le-modèle-lda-avec-topicmodels"><span class="header-section-number">2.1</span> Le modèle LDA avec topicmodels</a></li>
+  <li><a href="#topic-analysis-à-partir-de-lannotation-des-part-of-speech" id="toc-topic-analysis-à-partir-de-lannotation-des-part-of-speech" class="nav-link" data-scroll-target="#topic-analysis-à-partir-de-lannotation-des-part-of-speech"><span class="header-section-number">2.2</span> <em>Topic Analysis</em> à partir de l’annotation des <em>part of speech</em></a></li>
+  <li><a href="#déterminer-le-nombre-de-topics-optimal" id="toc-déterminer-le-nombre-de-topics-optimal" class="nav-link" data-scroll-target="#déterminer-le-nombre-de-topics-optimal"><span class="header-section-number">2.3</span> Déterminer le nombre de topics optimal</a></li>
+  <li><a href="#représentation-graphique" id="toc-représentation-graphique" class="nav-link" data-scroll-target="#représentation-graphique"><span class="header-section-number">2.4</span> Représentation graphique</a></li>
+  </ul></li>
+  <li><a href="#theory-driven-lda" id="toc-theory-driven-lda" class="nav-link" data-scroll-target="#theory-driven-lda"><span class="header-section-number">3</span> <em>Theory-Driven LDA</em></a></li>
+  <li><a href="#expliquer-les-notes" id="toc-expliquer-les-notes" class="nav-link" data-scroll-target="#expliquer-les-notes"><span class="header-section-number">4</span> Expliquer les notes</a>
+  <ul class="collapse">
+  <li><a href="#nps" id="toc-nps" class="nav-link" data-scroll-target="#nps"><span class="header-section-number">4.1</span> NPS</a></li>
+  <li><a href="#en-fonction-des-topics" id="toc-en-fonction-des-topics" class="nav-link" data-scroll-target="#en-fonction-des-topics"><span class="header-section-number">4.2</span> En fonction des topics</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textstats)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textplots)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(topicmodels)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggwordcloud)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="les-données" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Les données</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data_trustpilot_oiseaux.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="topics-analysis" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> <em>Topics Analysis</em></h1>
+<p>On va maintenant s’intéresser à la détection et à l’analyse de topics. Il existe de nombreux algorithmes pour cela. On va en explorer un : le modèle LDA, pour Latent Dirichlet Allocation.</p>
+<ul>
+<li>Description du modèle LDA :</li>
+</ul>
+<p>L’idée est la suivante : un corpus est considéré comme une collection de documents. Chaque document est considéré comme étant composé d’un mélange de topics. Chaque topic est considéré comme étant composé d’un mélange de tokens. L’algorithme calcule par itération les probabilités d’appartenance des tokens aux topics et des topics aux documents, ce qui nous permet de visualiser la composition des sujets identifiés.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lda.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Le modèle LDA</figcaption>
+</figure>
+</div>
+<section id="le-modèle-lda-avec-topicmodels" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="le-modèle-lda-avec-topicmodels"><span class="header-section-number">2.1</span> Le modèle LDA avec topicmodels</h2>
+<p>On travaille à partir du dfm. On doit transformer le format des données afin de l’injecter dans le modèle. On réduit le nombre de termes considérés, ce qui permet de réduire les temps de calcul et de trouver une solution convergente.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>corpus_oiseaux<span class="ot">&lt;-</span><span class="fu">corpus</span>(data, <span class="at">text_field =</span> <span class="st">"comments"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>tok<span class="ot">&lt;-</span><span class="fu">tokens</span>(corpus_oiseaux, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>, <span class="at">remove_numbers =</span> <span class="cn">TRUE</span>, <span class="at">remove_symbols =</span> <span class="cn">TRUE</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tokens_remove</span>(<span class="fu">stopwords</span>(<span class="st">"fr"</span>))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>dfm<span class="ot">&lt;-</span><span class="fu">dfm</span>(tok)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#On filtre les mots trop et trop peu fréquents</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>rem<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"très"</span>,<span class="st">"rapide"</span>,<span class="st">"produit"</span>,<span class="st">"livraison"</span>, <span class="st">"commande"</span>, <span class="st">"bien"</span>, <span class="st">"site"</span>, <span class="st">"a"</span>, <span class="st">"bon"</span>, <span class="st">"merci"</span>, <span class="st">"recommande"</span>,<span class="st">"parfait"</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>news_dfm <span class="ot">&lt;-</span> dfm <span class="sc">%&gt;%</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dfm_remove</span>(rem)<span class="sc">%&gt;%</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dfm_trim</span>(<span class="at">min_termfreq =</span> <span class="fl">0.8</span>, <span class="at">termfreq_type =</span> <span class="st">"quantile"</span>,    <span class="co"># 80% des mots les plus fréquents</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">max_docfreq =</span> <span class="fl">0.2</span>, <span class="at">docfreq_type =</span> <span class="st">"prop"</span>)          <span class="co">#qui apparaissent dans max 20% des documents</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#On supprime les entrées vides</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>news_dfm <span class="ot">&lt;-</span> news_dfm[<span class="fu">ntoken</span>(news_dfm) <span class="sc">&gt;</span> <span class="dv">0</span>,]</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">#On transforme en dtm, un format compris par le package topicsmodel</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>dtm <span class="ot">&lt;-</span> <span class="fu">convert</span>(news_dfm, <span class="at">to =</span> <span class="st">"topicmodels"</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">#On lance le modèle</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>lda <span class="ot">&lt;-</span> <span class="fu">LDA</span>(dtm, <span class="at">k =</span> <span class="dv">5</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co">#On regarde les résultats</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="fu">terms</span>(lda,<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Topic 1     Topic 2      Topic 3      Topic 4     Topic 5   
+ [1,] "produits"  "rapidement" "produits"   "colis"     "qualité" 
+ [2,] "reçu"      "tout"       "oiseaux"    "envoi"     "produits"
+ [3,] "qualité"   "plus"       "rien"       "reçu"      "bonne"   
+ [4,] "super"     "satisfaite" "satisfaite" "mania"     "service" 
+ [5,] "temps"     "beaucoup"   "tres"       "tout"      "tres"    
+ [6,] "service"   "prix"       "j'ai"       "conforme"  "prix"    
+ [7,] "satisfait" "toujours"   "super"      "satisfait" "colis"   
+ [8,] "j'ai"      "sérieux"    "c'est"      "rien"      "j'ai"    
+ [9,] "prix"      "conforme"   "contente"   "toujours"  "tout"    
+[10,] "rapidité"  "oiseaux"    "chez"       "super"     "envoi"   </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># topics(lda)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>corpus_oiseaux[<span class="st">"text996"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Corpus consisting of 1 document and 6 docvars.
+text996 :
+"Seconde commande, satisfaction totale, expédition très rapid..."</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>corpus_oiseaux[<span class="st">"text995"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Corpus consisting of 1 document and 6 docvars.
+text995 :
+"Très bon produit. Livraison rapide et sérieux je recommande ..."</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>corpus_oiseaux[<span class="st">"text999"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Corpus consisting of 1 document and 6 docvars.
+text999 :
+"Très bon magasin emballage dans les normes on y trouve de to..."</code></pre>
+</div>
+</div>
+</section>
+<section id="topic-analysis-à-partir-de-lannotation-des-part-of-speech" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="topic-analysis-à-partir-de-lannotation-des-part-of-speech"><span class="header-section-number">2.2</span> <em>Topic Analysis</em> à partir de l’annotation des <em>part of speech</em></h2>
+<p>Les résultats du modèle LDA sont très dépendants de la qualité du vocabulaire injecté. Plus on travaille ce vocabulaire, meilleurs sont les résultats. On va donc reprendre tout ce qu’on a fait jusqu’à présent pour améliorer les résultats de notre modèle : on récupère les annotations ; on filtre le vocabulaire pour ne garder que les noms, adjectifs et verbes ; on crée les collocations ; on filtre les occurrences trop et pas assez fréquentes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ann_token<span class="ot">&lt;-</span><span class="fu">read_rds</span>(<span class="st">"annotation_oiseaux.rds"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span>ann_token<span class="sc">%&gt;%</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(upos<span class="sc">==</span><span class="st">"NOUN"</span><span class="sc">|</span>upos<span class="sc">==</span><span class="st">"VERB"</span><span class="sc">|</span>upos<span class="sc">==</span><span class="st">"ADJ"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(doc_id)<span class="sc">%&gt;%</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">text=</span><span class="fu">paste</span>(lemma,<span class="at">collapse =</span> <span class="st">" "</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(data, <span class="fu">join_by</span>(<span class="st">"doc_id"</span><span class="sc">==</span><span class="st">"id"</span>))</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>corpus_new<span class="ot">&lt;-</span><span class="fu">corpus</span>(data, <span class="at">text_field =</span> <span class="st">"text"</span>)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>toks<span class="ot">&lt;-</span><span class="fu">tokens</span>(corpus_new)<span class="sc">%&gt;%</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tokens_replace</span>(<span class="fu">c</span>(<span class="st">"produire"</span>, <span class="st">"conformer"</span>), <span class="fu">c</span>(<span class="st">"produit"</span>, <span class="st">"conforme"</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tokens_remove</span>(<span class="fu">c</span>(<span class="st">"."</span>,<span class="st">","</span>))</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>colloc<span class="ot">&lt;-</span><span class="fu">textstat_collocations</span>(toks, <span class="at">min_count =</span> <span class="dv">10</span>, <span class="at">tolower =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>toks<span class="ot">&lt;-</span><span class="fu">tokens_compound</span>(toks, <span class="at">pattern =</span> colloc[colloc<span class="sc">$</span>z<span class="sc">&gt;</span><span class="dv">7</span>,])</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>dfm_new<span class="ot">&lt;-</span><span class="fu">dfm</span>(toks)<span class="sc">%&gt;%</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dfm_trim</span>(<span class="at">min_termfreq =</span> <span class="fl">0.6</span>, <span class="at">termfreq_type =</span> <span class="st">"quantile"</span>,</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>           <span class="at">max_docfreq =</span> <span class="fl">0.1</span>, <span class="at">docfreq_type =</span> <span class="st">"prop"</span>)</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>dtm_new <span class="ot">&lt;-</span> <span class="fu">convert</span>(dfm_new, <span class="at">to =</span> <span class="st">"topicmodels"</span>)</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>lda <span class="ot">&lt;-</span> <span class="fu">LDA</span>(dtm_new, <span class="at">k =</span> <span class="dv">5</span>)</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>term<span class="ot">&lt;-</span><span class="fu">as_tibble</span>(<span class="fu">terms</span>(lda,<span class="dv">25</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rank=</span><span class="fu">as.numeric</span>(<span class="fu">row.names</span>(.)))<span class="sc">%&gt;%</span></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>rank, <span class="at">names_to =</span> <span class="st">"topic"</span>,<span class="at">values_to =</span> <span class="st">"term"</span>)</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(term, <span class="fu">aes</span>(<span class="at">x=</span>topic, <span class="at">y=</span> rank, <span class="at">group =</span>  term , <span class="at">label =</span> term)) <span class="sc">+</span> </span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>() <span class="sc">+</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">color=</span>topic,<span class="at">size=</span><span class="dv">8</span><span class="sc">/</span><span class="fu">log</span>(rank)))<span class="sc">+</span></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_hue</span>()<span class="sc">+</span></span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color=</span><span class="st">"none"</span>,<span class="at">size=</span><span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="EQW_cours4_23_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="déterminer-le-nombre-de-topics-optimal" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="déterminer-le-nombre-de-topics-optimal"><span class="header-section-number">2.3</span> Déterminer le nombre de topics optimal</h2>
+<p>Le modèle LDA fonctionne à partir d’un nombre de topics donné. La question est donc de savoir quel est le nombre de topics optimal pour décrire notre corpus. Heureusement, des personnes ont créé des fonctions et des procédures pour nous aider dans cette quête. L’idée est de calculer différents modèles pour différents nombres de topics, et de comparer la qualité des résultats. La procédure ci-dessous est en deux parties :</p>
+<ul>
+<li><p>Tout d’abord, on compare la qualité de différents indicateurs sur un grand nombre de modèles, pour aboutir à une liste de quelques solutions à comparer plus en détail (de 3 à 10).</p></li>
+<li><p>Ensuite, on compare les résultats de la liste réduite de modèles, pour déterminer lequel a la meilleure distribution des topics entre les documents. La distribution recherchée est celle qui distingue le plus les documents en fonction des topics, tout en étant à droite de l’estimation d’une répartition uniforme des documents entre les topics. Le critère de parcimonie nous invite à choisir la solution avec le moins grand nombre de topics, en cas de résultats comparables.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">##Etape 1 : les meilleures solutions</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ldatuning)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">FindTopicsNumber</span>(dtm_new,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                           <span class="at">topics =</span> <span class="fu">c</span>(<span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">2</span>, <span class="at">to =</span> <span class="dv">9</span>, <span class="at">by =</span> <span class="dv">1</span>), <span class="fu">seq</span>(<span class="dv">10</span>, <span class="dv">25</span>, <span class="dv">5</span>)),</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>                           <span class="at">metrics =</span> <span class="fu">c</span>(<span class="st">"Griffiths2004"</span>, <span class="st">"CaoJuan2009"</span>, <span class="st">"Arun2010"</span>, <span class="st">"Deveaud2014"</span>),</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>                           <span class="at">method =</span> <span class="st">"Gibbs"</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>                           <span class="at">control =</span> <span class="fu">list</span>(<span class="at">seed =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">4</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">nstart =</span> <span class="dv">5</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">best =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>                           <span class="at">mc.cores =</span> 4L,</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>                           <span class="at">verbose =</span> <span class="cn">TRUE</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>                           )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fit models... done.
+calculate metrics:
+  Griffiths2004... done.
+  CaoJuan2009... done.
+  Arun2010... done.
+  Deveaud2014... done.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">FindTopicsNumber_plot</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="EQW_cours4_23_files/figure-html/proc_topic-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">##Etape 2 : comparaison des solutions</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>para <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">k =</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">10</span>))</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>lemma_tm <span class="ot">&lt;-</span> para <span class="sc">%&gt;%</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lda =</span> <span class="fu">map</span>(k,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                   <span class="cf">function</span>(k) <span class="fu">LDA</span>(</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">k=</span>k,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">x=</span>dtm_new,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">method=</span><span class="st">"Gibbs"</span>,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">control=</span><span class="fu">list</span>(<span class="at">seed =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">4</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">nstart =</span> <span class="dv">5</span>,</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">best =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>                     )</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>                   )</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>lemma_tm <span class="ot">&lt;-</span> lemma_tm <span class="sc">%&gt;%</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lda_gamma =</span> <span class="fu">map</span>(<span class="at">.x=</span>lda,</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>                         <span class="at">.f=</span>tidytext<span class="sc">::</span>tidy,</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>                         <span class="at">matrix=</span><span class="st">"gamma"</span>))</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>lemma_tm <span class="sc">%&gt;%</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(lda_gamma) <span class="sc">%&gt;%</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(k, document) <span class="sc">%&gt;%</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(gamma)) <span class="sc">%&gt;%</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>gamma, <span class="at">fill=</span><span class="fu">factor</span>(k))) <span class="sc">+</span></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">name =</span> <span class="st">"Number of</span><span class="sc">\n</span><span class="st">Topics"</span>) <span class="sc">+</span></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"maximum gamma per document"</span>) <span class="sc">+</span></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>k) <span class="sc">+</span></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="dv">1</span><span class="sc">/</span>k),</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>             <span class="fu">tibble</span>(<span class="at">k=</span>lemma_tm <span class="sc">%$%</span> <span class="fu">unique</span>(k)),</span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>             <span class="at">color=</span><span class="st">"darkred"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="EQW_cours4_23_files/figure-html/proc_topic-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="représentation-graphique" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="représentation-graphique"><span class="header-section-number">2.4</span> Représentation graphique</h2>
+<p>À partir de la solution retenue aux étapes précédentes, on va représenter les différents topics :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)     <span class="co">#pour la réplicabilité des résultats</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>lda <span class="ot">&lt;-</span> <span class="fu">LDA</span>(dtm_new, <span class="at">k =</span> <span class="dv">10</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>lda_res<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">terms</span>(lda, <span class="dv">25</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">nom1=</span><span class="st">'Topic 1'</span>,<span class="at">nom2=</span><span class="st">'Topic 2'</span>, <span class="at">nom3=</span><span class="st">'Topic 3'</span>, <span class="at">nom4=</span><span class="st">'Topic 4'</span>, <span class="at">nom5=</span><span class="st">'Topic 5'</span>,<span class="at">nom6=</span><span class="st">'Topic 6'</span>,<span class="at">nom7=</span><span class="st">'Topic 7'</span>, <span class="at">nom8=</span><span class="st">'Topic 8'</span>, <span class="at">nom9=</span><span class="st">'Topic 9'</span>, <span class="at">nom10=</span><span class="st">'Topic 10'</span> )<span class="sc">%&gt;%</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rank=</span><span class="fu">as.numeric</span>(<span class="fu">row.names</span>(.)))<span class="sc">%&gt;%</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>rank, <span class="at">names_to =</span> <span class="st">"topic"</span>, <span class="at">values_to =</span> <span class="st">"term"</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lda_res, <span class="fu">aes</span>(<span class="at">x=</span>topic, <span class="at">y=</span> rank, <span class="at">group =</span>  term , <span class="at">label =</span> term)) <span class="sc">+</span> </span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>() <span class="sc">+</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">color=</span>topic,<span class="at">size=</span><span class="dv">8</span><span class="sc">/</span><span class="fu">log</span>(rank)))<span class="sc">+</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_hue</span>()<span class="sc">+</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color=</span><span class="cn">FALSE</span>,<span class="at">size=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="EQW_cours4_23_files/figure-html/lda_graph-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="theory-driven-lda" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> <em>Theory-Driven LDA</em></h1>
+<p>Ici, on va forcer les <em>topics</em> grâce à la réalisation d’un dictionnaire. C’est utile quand on cherche à appliquer une théorie qui nous dit ce que l’on cherche à trouver. Par exemple, ici on s’intéresse aux attributs clés des logements oiseaux. Dans d’autre cas, on pourra chercher à expliquer les notes en fonction de <em>topics</em> qui reflètent les attributs clés. On peut réaliser le dictionnaire a priori ou après différentes analyses de <em>topics</em>, de co-occurences, de fréquence, etc.</p>
+<p>On commence par créer un dictionnaire.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>dict<span class="ot">&lt;-</span><span class="fu">dictionary</span>(<span class="fu">list</span>(<span class="at">produit=</span><span class="fu">c</span>(<span class="st">"produit*"</span>, <span class="st">"cage"</span>,<span class="st">"oiseau"</span>,<span class="st">"graine*"</span>),</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">livraison=</span><span class="fu">c</span>(<span class="st">"livr*"</span>,<span class="st">"recepti*"</span>,<span class="st">"délai"</span>),</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">commande=</span><span class="fu">c</span>(<span class="st">"command*"</span>,<span class="st">"emballage"</span>,<span class="st">"envoi*"</span>),</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">site=</span><span class="st">"*site*"</span>,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">prix=</span><span class="fu">c</span>(<span class="st">"*prix*"</span>,<span class="st">"frais_port"</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>                      ))</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>dict</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Dictionary object with 5 key entries.
+- [produit]:
+  - produit*, cage, oiseau, graine*
+- [livraison]:
+  - livr*, recepti*, délai
+- [commande]:
+  - command*, emballage, envoi*
+- [site]:
+  - *site*
+- [prix]:
+  - *prix*, frais_port</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">dfm_lookup</span>(dfm_new,dict))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Document-feature matrix of: 6 documents, 5 features (73.33% sparse) and 6 docvars.
+    features
+docs produit livraison commande site prix
+   1       0         0        0    0    0
+   2       0         2        1    0    0
+   3       2         1        0    0    0
+   4       0         0        1    0    0
+   5       0         1        0    0    0
+   6       0         1        0    1    0</code></pre>
+</div>
+</div>
+<p>On utilise ensuite le package ‘seededlda’ pour lancer le modèle semi-supervisé.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(seededlda)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>slda<span class="ot">&lt;-</span><span class="fu">textmodel_seededlda</span>(dfm_new, dict, <span class="at">residual =</span> T)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">terms</span>(slda,<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      produit                        livraison                     
+ [1,] "oiseau"                       "livraison"                   
+ [2,] "cage"                         "livrer"                      
+ [3,] "graine"                       "délai"                       
+ [4,] "produit_qualité"              "bon_produit"                 
+ [5,] "perroquet"                    "dire"                        
+ [6,] "produit_conforme"             "problème"                    
+ [7,] "trouver"                      "satisfaire"                  
+ [8,] "avoir"                        "correct"                     
+ [9,] "jouet"                        "livraison_rapide_recommander"
+[10,] "petit"                        "livraison_rapide_produit"    
+[11,] "acheter"                      "top"                         
+[12,] "harnais"                      "emballer"                    
+[13,] "perruche"                     "rapide"                      
+[14,] "produit_bon_qualité"          "recevoir"                    
+[15,] "grand"                        "livraison_temps"             
+[16,] "content"                      "livreur"                     
+[17,] "tout"                         "impeccable"                  
+[18,] "qualité"                      "passer"                      
+[19,] "produit_conforme_description" "cher"                        
+[20,] "faire"                        "livraison_rapider"           
+      commande              site               prix                      
+ [1,] "commander"           "site"             "prix"                    
+ [2,] "emballage"           "bon_site"         "service"                 
+ [3,] "envoi_rapide"        "recommander_site" "bon"                     
+ [4,] "recevoir"            "article"          "sérieux"                 
+ [5,] "satisfait"           "site_sérieux"     "satisfait"               
+ [6,] "rapide"              "rapide"           "frais_port"              
+ [7,] "envoi"               "super"            "excellent"               
+ [8,] "tre"                 "siter"            "qualité"                 
+ [9,] "commande_recevoir"   "choix"            "professionnel"           
+[10,] "rapidité"            "premier_commande" "prix_raisonnable"        
+[11,] "colis"               "bon"              "top"                     
+[12,] "envoi_rapide_soigné" "conforme"         "magasin"                 
+[13,] "commande_arriver"    "satisfait"        "efficace"                
+[14,] "commande_passer"     "bon_qualité"      "rapide"                  
+[15,] "emballer"            "rapider"          "réactif"                 
+[16,] "content"             "super_site"       "téléphone"               
+[17,] "réception"           "redire"           "équipe"                  
+[18,] "commande_livrer"     "autre_site"       "super"                   
+[19,] "protéger"            "content"          "bon_rapport_qualité_prix"
+[20,] "redire"              "qualité"          "prix_correct"            
+      other     
+ [1,] "avoir"   
+ [2,] "faire"   
+ [3,] "colis"   
+ [4,] "recevoir"
+ [5,] "pouvoir" 
+ [6,] "fois"    
+ [7,] "problème"
+ [8,] "autre"   
+ [9,] "envoyer" 
+[10,] "attendre"
+[11,] "jour"    
+[12,] "dire"    
+[13,] "aller"   
+[14,] "petit"   
+[15,] "part"    
+[16,] "être"    
+[17,] "devoir"  
+[18,] "voir"    
+[19,] "seul"    
+[20,] "temps"   </code></pre>
+</div>
+</div>
+</section>
+<section id="expliquer-les-notes" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Expliquer les notes</h1>
+<p>Dans cette dernière partie, nous allons nous intéresser aux notes et tenter de les expliquer à l’aide de l’analyse de <em>topics</em>.</p>
+<section id="nps" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="nps"><span class="header-section-number">4.1</span> NPS</h2>
+<p>Dans un premier temps, nous allons regarder le Net Promoter Score (NPS), puis nous étudierons les discours des promoteurs, détracteurs et passifs.</p>
+<p>Tout d’abord, nous créons nos catégories en fonction des notes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>col<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"gold"</span>, <span class="st">"chartreuse"</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span>data <span class="sc">%&gt;%</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">NPS=</span><span class="fu">case_when</span>(note<span class="sc">&lt;</span><span class="dv">4</span><span class="sc">~</span><span class="st">"Détracteurs"</span>,</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>                       note<span class="sc">==</span><span class="dv">4</span><span class="sc">~</span><span class="st">"Passifs"</span>,</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>                       note<span class="sc">&gt;</span><span class="dv">4</span><span class="sc">~</span><span class="st">"Promoteurs"</span>))</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x=</span>note))<span class="sc">+</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="fu">aes</span>(<span class="at">fill=</span>NPS))<span class="sc">+</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>( <span class="at">title=</span> <span class="st">" Distribution des scores NPS"</span>, </span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">"Moyenne du NPS de l'échantillon"</span>,<span class="fu">round</span>(<span class="fu">mean</span>(data<span class="sc">$</span>note),<span class="dv">1</span>)), </span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">caption =</span> <span class="fu">paste</span>(<span class="st">"Data : TrustPilot, n="</span>,<span class="fu">nrow</span>(data)), </span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"Fréquence"</span>)<span class="sc">+</span> </span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span>col)<span class="sc">+</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="EQW_cours4_23_files/figure-html/nps-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Puis nous réalisons un nuage de mots pour chaque groupe, afin d’avoir une idée de ce qui est exprimé.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>dfm_new<span class="sc">$</span>NPS<span class="ot">&lt;-</span>data<span class="sc">$</span>NPS</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># docvars(toks)</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>dfm_gp <span class="ot">&lt;-</span>dfm_new <span class="sc">%&gt;%</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dfm_group</span>(<span class="at">groups =</span> NPS)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># dfm_gp</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>stat<span class="ot">&lt;-</span> dfm_gp <span class="sc">%&gt;%</span> </span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textstat_frequency</span>(<span class="at">n =</span> <span class="dv">30</span>,  <span class="at">groups =</span> NPS)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co"># stat</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(stat, <span class="fu">aes</span>(<span class="at">label =</span> feature)) <span class="sc">+</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_wordcloud</span>(<span class="fu">aes</span>(<span class="at">size=</span><span class="fu">log</span>(frequency), <span class="at">color=</span>group)) <span class="sc">+</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(group))<span class="sc">+</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values=</span>col)<span class="sc">+</span> </span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Nuage des 30 mots les plus fréquents(Par groupes)"</span>,</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"La taille des mots est proportionnelle au log de leurs fréquences"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="EQW_cours4_23_files/figure-html/keyness1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Maintenant, nous nous intéressons à ce qui caractérise chacun des groupes par rapport aux autres, grâce à la mesure du <em>keyness</em>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>graph_promoteur<span class="ot">&lt;-</span><span class="fu">textstat_keyness</span>(dfm_gp, <span class="at">target =</span> <span class="st">"Promoteurs"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textplot_keyness</span>(<span class="at">n =</span> 30L, <span class="at">labelsize =</span> <span class="dv">2</span>,   <span class="at">show_legend =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">show_reference =</span> <span class="cn">FALSE</span>,   <span class="at">color =</span> <span class="fu">c</span>(<span class="st">"Darkgreen"</span>, <span class="st">"gray"</span>))<span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="cn">NULL</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>graph_detracteur <span class="ot">&lt;-</span> <span class="fu">textstat_keyness</span>(dfm_gp, <span class="at">target =</span> <span class="st">"Détracteurs"</span> )<span class="sc">%&gt;%</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textplot_keyness</span>(<span class="at">n =</span> 30L, <span class="at">labelsize =</span> <span class="dv">2</span>,   <span class="at">show_legend =</span> <span class="cn">FALSE</span>,   </span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">show_reference =</span> <span class="cn">FALSE</span>,   <span class="at">color =</span> <span class="fu">c</span>(<span class="st">"firebrick"</span>, <span class="st">"gray"</span>))<span class="sc">+</span> </span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="cn">NULL</span>)</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>graph_passif <span class="ot">&lt;-</span> <span class="fu">textstat_keyness</span>(dfm_gp, <span class="at">target =</span> <span class="st">"Passifs"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textplot_keyness</span>(<span class="at">n =</span> 30L, <span class="at">labelsize =</span> <span class="dv">2</span>,   <span class="at">show_legend =</span> <span class="cn">FALSE</span>,   <span class="at">show_reference =</span> <span class="cn">FALSE</span>,    <span class="at">color =</span> <span class="fu">c</span>(<span class="st">"gold2"</span>, <span class="st">"gray"</span>))<span class="sc">+</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="cn">NULL</span>)</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span> <span class="fu">plot_grid</span>(graph_detracteur, graph_passif ,graph_promoteur,  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">'Détracteurs'</span>, <span class="st">'Passifs'</span>, <span class="st">'Promoteurs'</span>), <span class="at">label_size =</span> <span class="dv">10</span>, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>title <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>() <span class="sc">+</span> <span class="fu">draw_label</span>(<span class="st">"NPS : Les raisons qui conduisent à la recommandation (keyness)"</span>, <span class="at">fontface=</span><span class="st">'bold'</span>)</span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>note <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>()<span class="sc">+</span> <span class="fu">draw_text</span>(<span class="st">"Les valeurs représentent le keyness des termes.</span><span class="sc">\n</span><span class="st">Il mesure leur caractère distinctif par une statistique du chi²"</span>, <span class="at">size=</span><span class="dv">8</span>,<span class="at">x =</span> <span class="fl">0.5</span>, <span class="at">y =</span> <span class="fl">0.5</span>)</span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(title, p,note, <span class="at">ncol=</span><span class="dv">1</span>, <span class="at">rel_heights=</span><span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">1</span>)) <span class="co"># rel_heights values control title margins</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="EQW_cours4_23_files/figure-html/keyness2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="en-fonction-des-topics" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="en-fonction-des-topics"><span class="header-section-number">4.2</span> En fonction des topics</h2>
+<p>Maintenant, nous cherchons à voir la répartition des <em>topics</em> dans les notes, pour comprendre si certains <em>topics</em> contribuent plus ou moins à la satisfaction.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>theta<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(slda<span class="sc">$</span>theta)<span class="sc">%&gt;%</span><span class="fu">mutate</span>(<span class="at">doc_id=</span><span class="fu">as.numeric</span>(<span class="fu">row.names</span>(.)))</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">inner_join</span>(data, theta)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span>data<span class="sc">%&gt;%</span><span class="fu">select</span>(note, produit, livraison, commande, site,prix, other)<span class="sc">%&gt;%</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>note, <span class="at">names_to =</span> <span class="st">"topic"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(foo,<span class="fu">aes</span>(<span class="at">x=</span>note, <span class="at">y=</span>value, <span class="at">group=</span>topic))<span class="sc">+</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">"fill"</span>,<span class="at">stat=</span><span class="st">"identity"</span>, <span class="fu">aes</span>(<span class="at">fill=</span>topic))<span class="sc">+</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Spectral"</span>)<span class="sc">+</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="EQW_cours4_23_files/figure-html/note-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Pour finir, une petite régression !</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>fit<span class="ot">&lt;-</span><span class="fu">lm</span>(note<span class="sc">~</span>produit<span class="sc">+</span>livraison<span class="sc">+</span>commande<span class="sc">+</span>site<span class="sc">+</span>prix, <span class="at">data =</span>data)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = note ~ produit + livraison + commande + site + prix, 
+    data = data)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-4.0286 -0.0066  0.1831  0.3331  1.8186 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  2.59745    0.07072   36.73   &lt;2e-16 ***
+produit      1.87603    0.11088   16.92   &lt;2e-16 ***
+livraison    2.21822    0.10950   20.26   &lt;2e-16 ***
+commande     2.54108    0.10788   23.55   &lt;2e-16 ***
+site         2.70709    0.10688   25.33   &lt;2e-16 ***
+prix         2.77667    0.10538   26.35   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.7634 on 4310 degrees of freedom
+Multiple R-squared:  0.186, Adjusted R-squared:  0.1851 
+F-statistic:   197 on 5 and 4310 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<!-- -->
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div id="quarto-copyright" class="quarto-appendix-contents"><div>(C) EQW SB23-24</div></div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb29" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Etudes qualitatives sur le web"</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "*Topics Analysis* et analyse de profils"</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "last-modified"</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co">  name: Sophie Balech</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co">  email: sophie.balech@u-picardie.fr</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co">  affiliation: IAE Amiens - Université Picardie Jules Verne</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="an">license:</span><span class="co"> "CC BY"</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="an">copyright:</span><span class="co"> "(C) EQW SB23-24"</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="an">title-block-banner:</span><span class="co"> true</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="co">    theme:</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="co">      light: yeti</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="co">      dark: darkly</span></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: left</span></span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> visual</span></span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=TRUE, output=FALSE}</span></span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span>
+<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textstats)</span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textplots)</span>
+<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(topicmodels)</span>
+<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggwordcloud)</span>
+<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a><span class="fu"># Les données</span></span>
+<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a><span class="in">```{r data, warning=FALSE}</span></span>
+<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data_trustpilot_oiseaux.csv"</span>)</span>
+<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-49"><a href="#cb29-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-50"><a href="#cb29-50" aria-hidden="true" tabindex="-1"></a><span class="fu"># *Topics Analysis*</span></span>
+<span id="cb29-51"><a href="#cb29-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-52"><a href="#cb29-52" aria-hidden="true" tabindex="-1"></a>On va maintenant s'intéresser à la détection et à l'analyse de topics. Il existe de nombreux algorithmes pour cela. On va en explorer un : le modèle LDA, pour Latent Dirichlet Allocation.</span>
+<span id="cb29-53"><a href="#cb29-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-54"><a href="#cb29-54" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Description du modèle LDA : </span>
+<span id="cb29-55"><a href="#cb29-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-56"><a href="#cb29-56" aria-hidden="true" tabindex="-1"></a>L'idée est la suivante : un corpus est considéré comme une collection de documents. Chaque document est considéré comme étant composé d’un mélange de topics. Chaque topic est considéré comme étant composé d’un mélange de tokens. L’algorithme calcule par itération les probabilités d’appartenance des tokens aux topics et des topics aux documents, ce qui nous permet de visualiser la composition des sujets identifiés.</span>
+<span id="cb29-57"><a href="#cb29-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-58"><a href="#cb29-58" aria-hidden="true" tabindex="-1"></a><span class="al">![Le modèle LDA](lda.png)</span></span>
+<span id="cb29-59"><a href="#cb29-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-60"><a href="#cb29-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Le modèle LDA avec topicmodels</span></span>
+<span id="cb29-61"><a href="#cb29-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-62"><a href="#cb29-62" aria-hidden="true" tabindex="-1"></a>On travaille à partir du dfm. On doit transformer le format des données afin de l'injecter dans le modèle. On réduit le nombre de termes considérés, ce qui permet de réduire les temps de calcul et de trouver une solution convergente.</span>
+<span id="cb29-63"><a href="#cb29-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-64"><a href="#cb29-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-65"><a href="#cb29-65" aria-hidden="true" tabindex="-1"></a><span class="in">```{r lda}</span></span>
+<span id="cb29-66"><a href="#cb29-66" aria-hidden="true" tabindex="-1"></a>corpus_oiseaux<span class="ot">&lt;-</span><span class="fu">corpus</span>(data, <span class="at">text_field =</span> <span class="st">"comments"</span>)</span>
+<span id="cb29-67"><a href="#cb29-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-68"><a href="#cb29-68" aria-hidden="true" tabindex="-1"></a>tok<span class="ot">&lt;-</span><span class="fu">tokens</span>(corpus_oiseaux, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>, <span class="at">remove_numbers =</span> <span class="cn">TRUE</span>, <span class="at">remove_symbols =</span> <span class="cn">TRUE</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb29-69"><a href="#cb29-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tokens_remove</span>(<span class="fu">stopwords</span>(<span class="st">"fr"</span>))</span>
+<span id="cb29-70"><a href="#cb29-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-71"><a href="#cb29-71" aria-hidden="true" tabindex="-1"></a>dfm<span class="ot">&lt;-</span><span class="fu">dfm</span>(tok)</span>
+<span id="cb29-72"><a href="#cb29-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-73"><a href="#cb29-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-74"><a href="#cb29-74" aria-hidden="true" tabindex="-1"></a><span class="co">#On filtre les mots trop et trop peu fréquents</span></span>
+<span id="cb29-75"><a href="#cb29-75" aria-hidden="true" tabindex="-1"></a>rem<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"très"</span>,<span class="st">"rapide"</span>,<span class="st">"produit"</span>,<span class="st">"livraison"</span>, <span class="st">"commande"</span>, <span class="st">"bien"</span>, <span class="st">"site"</span>, <span class="st">"a"</span>, <span class="st">"bon"</span>, <span class="st">"merci"</span>, <span class="st">"recommande"</span>,<span class="st">"parfait"</span>)</span>
+<span id="cb29-76"><a href="#cb29-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-77"><a href="#cb29-77" aria-hidden="true" tabindex="-1"></a>news_dfm <span class="ot">&lt;-</span> dfm <span class="sc">%&gt;%</span></span>
+<span id="cb29-78"><a href="#cb29-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dfm_remove</span>(rem)<span class="sc">%&gt;%</span></span>
+<span id="cb29-79"><a href="#cb29-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dfm_trim</span>(<span class="at">min_termfreq =</span> <span class="fl">0.8</span>, <span class="at">termfreq_type =</span> <span class="st">"quantile"</span>,    <span class="co"># 80% des mots les plus fréquents</span></span>
+<span id="cb29-80"><a href="#cb29-80" aria-hidden="true" tabindex="-1"></a>           <span class="at">max_docfreq =</span> <span class="fl">0.2</span>, <span class="at">docfreq_type =</span> <span class="st">"prop"</span>)          <span class="co">#qui apparaissent dans max 20% des documents</span></span>
+<span id="cb29-81"><a href="#cb29-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-82"><a href="#cb29-82" aria-hidden="true" tabindex="-1"></a><span class="co">#On supprime les entrées vides</span></span>
+<span id="cb29-83"><a href="#cb29-83" aria-hidden="true" tabindex="-1"></a>news_dfm <span class="ot">&lt;-</span> news_dfm[<span class="fu">ntoken</span>(news_dfm) <span class="sc">&gt;</span> <span class="dv">0</span>,]</span>
+<span id="cb29-84"><a href="#cb29-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-85"><a href="#cb29-85" aria-hidden="true" tabindex="-1"></a><span class="co">#On transforme en dtm, un format compris par le package topicsmodel</span></span>
+<span id="cb29-86"><a href="#cb29-86" aria-hidden="true" tabindex="-1"></a>dtm <span class="ot">&lt;-</span> <span class="fu">convert</span>(news_dfm, <span class="at">to =</span> <span class="st">"topicmodels"</span>)</span>
+<span id="cb29-87"><a href="#cb29-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-88"><a href="#cb29-88" aria-hidden="true" tabindex="-1"></a><span class="co">#On lance le modèle</span></span>
+<span id="cb29-89"><a href="#cb29-89" aria-hidden="true" tabindex="-1"></a>lda <span class="ot">&lt;-</span> <span class="fu">LDA</span>(dtm, <span class="at">k =</span> <span class="dv">5</span>)</span>
+<span id="cb29-90"><a href="#cb29-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-91"><a href="#cb29-91" aria-hidden="true" tabindex="-1"></a><span class="co">#On regarde les résultats</span></span>
+<span id="cb29-92"><a href="#cb29-92" aria-hidden="true" tabindex="-1"></a><span class="fu">terms</span>(lda,<span class="dv">10</span>)</span>
+<span id="cb29-93"><a href="#cb29-93" aria-hidden="true" tabindex="-1"></a><span class="co"># topics(lda)</span></span>
+<span id="cb29-94"><a href="#cb29-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-95"><a href="#cb29-95" aria-hidden="true" tabindex="-1"></a>corpus_oiseaux[<span class="st">"text996"</span>]</span>
+<span id="cb29-96"><a href="#cb29-96" aria-hidden="true" tabindex="-1"></a>corpus_oiseaux[<span class="st">"text995"</span>]</span>
+<span id="cb29-97"><a href="#cb29-97" aria-hidden="true" tabindex="-1"></a>corpus_oiseaux[<span class="st">"text999"</span>]</span>
+<span id="cb29-98"><a href="#cb29-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-99"><a href="#cb29-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-100"><a href="#cb29-100" aria-hidden="true" tabindex="-1"></a><span class="fu">## *Topic Analysis* à partir de l'annotation des *part of speech*</span></span>
+<span id="cb29-101"><a href="#cb29-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-102"><a href="#cb29-102" aria-hidden="true" tabindex="-1"></a>Les résultats du modèle LDA sont très dépendants de la qualité du vocabulaire injecté. Plus on travaille ce vocabulaire, meilleurs sont les résultats. On va donc reprendre tout ce qu'on a fait jusqu'à présent pour améliorer les résultats de notre modèle : on récupère les annotations ; on filtre le vocabulaire pour ne garder que les noms, adjectifs et verbes ; on crée les collocations ; on filtre les occurrences trop et pas assez fréquentes.</span>
+<span id="cb29-103"><a href="#cb29-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-106"><a href="#cb29-106" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb29-107"><a href="#cb29-107" aria-hidden="true" tabindex="-1"></a>ann_token<span class="ot">&lt;-</span><span class="fu">read_rds</span>(<span class="st">"annotation_oiseaux.rds"</span>)</span>
+<span id="cb29-108"><a href="#cb29-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-109"><a href="#cb29-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-110"><a href="#cb29-110" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span>ann_token<span class="sc">%&gt;%</span></span>
+<span id="cb29-111"><a href="#cb29-111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(upos<span class="sc">==</span><span class="st">"NOUN"</span><span class="sc">|</span>upos<span class="sc">==</span><span class="st">"VERB"</span><span class="sc">|</span>upos<span class="sc">==</span><span class="st">"ADJ"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb29-112"><a href="#cb29-112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(doc_id)<span class="sc">%&gt;%</span></span>
+<span id="cb29-113"><a href="#cb29-113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">text=</span><span class="fu">paste</span>(lemma,<span class="at">collapse =</span> <span class="st">" "</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb29-114"><a href="#cb29-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(data, <span class="fu">join_by</span>(<span class="st">"doc_id"</span><span class="sc">==</span><span class="st">"id"</span>))</span>
+<span id="cb29-115"><a href="#cb29-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-116"><a href="#cb29-116" aria-hidden="true" tabindex="-1"></a>corpus_new<span class="ot">&lt;-</span><span class="fu">corpus</span>(data, <span class="at">text_field =</span> <span class="st">"text"</span>)</span>
+<span id="cb29-117"><a href="#cb29-117" aria-hidden="true" tabindex="-1"></a>toks<span class="ot">&lt;-</span><span class="fu">tokens</span>(corpus_new)<span class="sc">%&gt;%</span></span>
+<span id="cb29-118"><a href="#cb29-118" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tokens_replace</span>(<span class="fu">c</span>(<span class="st">"produire"</span>, <span class="st">"conformer"</span>), <span class="fu">c</span>(<span class="st">"produit"</span>, <span class="st">"conforme"</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb29-119"><a href="#cb29-119" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tokens_remove</span>(<span class="fu">c</span>(<span class="st">"."</span>,<span class="st">","</span>))</span>
+<span id="cb29-120"><a href="#cb29-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-121"><a href="#cb29-121" aria-hidden="true" tabindex="-1"></a>colloc<span class="ot">&lt;-</span><span class="fu">textstat_collocations</span>(toks, <span class="at">min_count =</span> <span class="dv">10</span>, <span class="at">tolower =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb29-122"><a href="#cb29-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-123"><a href="#cb29-123" aria-hidden="true" tabindex="-1"></a>toks<span class="ot">&lt;-</span><span class="fu">tokens_compound</span>(toks, <span class="at">pattern =</span> colloc[colloc<span class="sc">$</span>z<span class="sc">&gt;</span><span class="dv">7</span>,])</span>
+<span id="cb29-124"><a href="#cb29-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-125"><a href="#cb29-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-126"><a href="#cb29-126" aria-hidden="true" tabindex="-1"></a>dfm_new<span class="ot">&lt;-</span><span class="fu">dfm</span>(toks)<span class="sc">%&gt;%</span></span>
+<span id="cb29-127"><a href="#cb29-127" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dfm_trim</span>(<span class="at">min_termfreq =</span> <span class="fl">0.6</span>, <span class="at">termfreq_type =</span> <span class="st">"quantile"</span>,</span>
+<span id="cb29-128"><a href="#cb29-128" aria-hidden="true" tabindex="-1"></a>           <span class="at">max_docfreq =</span> <span class="fl">0.1</span>, <span class="at">docfreq_type =</span> <span class="st">"prop"</span>)</span>
+<span id="cb29-129"><a href="#cb29-129" aria-hidden="true" tabindex="-1"></a>dtm_new <span class="ot">&lt;-</span> <span class="fu">convert</span>(dfm_new, <span class="at">to =</span> <span class="st">"topicmodels"</span>)</span>
+<span id="cb29-130"><a href="#cb29-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-131"><a href="#cb29-131" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb29-132"><a href="#cb29-132" aria-hidden="true" tabindex="-1"></a>lda <span class="ot">&lt;-</span> <span class="fu">LDA</span>(dtm_new, <span class="at">k =</span> <span class="dv">5</span>)</span>
+<span id="cb29-133"><a href="#cb29-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-134"><a href="#cb29-134" aria-hidden="true" tabindex="-1"></a>term<span class="ot">&lt;-</span><span class="fu">as_tibble</span>(<span class="fu">terms</span>(lda,<span class="dv">25</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb29-135"><a href="#cb29-135" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rank=</span><span class="fu">as.numeric</span>(<span class="fu">row.names</span>(.)))<span class="sc">%&gt;%</span></span>
+<span id="cb29-136"><a href="#cb29-136" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>rank, <span class="at">names_to =</span> <span class="st">"topic"</span>,<span class="at">values_to =</span> <span class="st">"term"</span>)</span>
+<span id="cb29-137"><a href="#cb29-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-138"><a href="#cb29-138" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(term, <span class="fu">aes</span>(<span class="at">x=</span>topic, <span class="at">y=</span> rank, <span class="at">group =</span>  term , <span class="at">label =</span> term)) <span class="sc">+</span> </span>
+<span id="cb29-139"><a href="#cb29-139" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>() <span class="sc">+</span></span>
+<span id="cb29-140"><a href="#cb29-140" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">color=</span>topic,<span class="at">size=</span><span class="dv">8</span><span class="sc">/</span><span class="fu">log</span>(rank)))<span class="sc">+</span></span>
+<span id="cb29-141"><a href="#cb29-141" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb29-142"><a href="#cb29-142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_hue</span>()<span class="sc">+</span></span>
+<span id="cb29-143"><a href="#cb29-143" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color=</span><span class="st">"none"</span>,<span class="at">size=</span><span class="st">"none"</span>)</span>
+<span id="cb29-144"><a href="#cb29-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-145"><a href="#cb29-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-146"><a href="#cb29-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-147"><a href="#cb29-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-148"><a href="#cb29-148" aria-hidden="true" tabindex="-1"></a><span class="fu">## Déterminer le nombre de topics optimal</span></span>
+<span id="cb29-149"><a href="#cb29-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-150"><a href="#cb29-150" aria-hidden="true" tabindex="-1"></a>Le modèle LDA fonctionne à partir d'un nombre de topics donné. La question est donc de savoir quel est le nombre de topics optimal pour décrire notre corpus. Heureusement, des personnes ont créé des fonctions et des procédures pour nous aider dans cette quête. L'idée est de calculer différents modèles pour différents nombres de topics, et de comparer la qualité des résultats.</span>
+<span id="cb29-151"><a href="#cb29-151" aria-hidden="true" tabindex="-1"></a>La procédure ci-dessous est en deux parties :</span>
+<span id="cb29-152"><a href="#cb29-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-153"><a href="#cb29-153" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Tout d'abord, on compare la qualité de différents indicateurs sur un grand nombre de modèles, pour aboutir à une liste de quelques solutions à comparer plus en détail (de 3 à 10).</span>
+<span id="cb29-154"><a href="#cb29-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-155"><a href="#cb29-155" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Ensuite, on compare les résultats de la liste réduite de modèles, pour déterminer lequel a la meilleure distribution des topics entre les documents. La distribution recherchée est celle qui distingue le plus les documents en fonction des topics, tout en étant à droite de l’estimation d’une répartition uniforme des documents entre les topics. Le critère de parcimonie nous invite à choisir la solution avec le moins grand nombre de topics, en cas de résultats comparables.</span>
+<span id="cb29-156"><a href="#cb29-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-157"><a href="#cb29-157" aria-hidden="true" tabindex="-1"></a><span class="in">```{r proc_topic}</span></span>
+<span id="cb29-158"><a href="#cb29-158" aria-hidden="true" tabindex="-1"></a><span class="do">##Etape 1 : les meilleures solutions</span></span>
+<span id="cb29-159"><a href="#cb29-159" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ldatuning)</span>
+<span id="cb29-160"><a href="#cb29-160" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb29-161"><a href="#cb29-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-162"><a href="#cb29-162" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">FindTopicsNumber</span>(dtm_new,</span>
+<span id="cb29-163"><a href="#cb29-163" aria-hidden="true" tabindex="-1"></a>                           <span class="at">topics =</span> <span class="fu">c</span>(<span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">2</span>, <span class="at">to =</span> <span class="dv">9</span>, <span class="at">by =</span> <span class="dv">1</span>), <span class="fu">seq</span>(<span class="dv">10</span>, <span class="dv">25</span>, <span class="dv">5</span>)),</span>
+<span id="cb29-164"><a href="#cb29-164" aria-hidden="true" tabindex="-1"></a>                           <span class="at">metrics =</span> <span class="fu">c</span>(<span class="st">"Griffiths2004"</span>, <span class="st">"CaoJuan2009"</span>, <span class="st">"Arun2010"</span>, <span class="st">"Deveaud2014"</span>),</span>
+<span id="cb29-165"><a href="#cb29-165" aria-hidden="true" tabindex="-1"></a>                           <span class="at">method =</span> <span class="st">"Gibbs"</span>,</span>
+<span id="cb29-166"><a href="#cb29-166" aria-hidden="true" tabindex="-1"></a>                           <span class="at">control =</span> <span class="fu">list</span>(<span class="at">seed =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">4</span>,</span>
+<span id="cb29-167"><a href="#cb29-167" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">nstart =</span> <span class="dv">5</span>,</span>
+<span id="cb29-168"><a href="#cb29-168" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">best =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb29-169"><a href="#cb29-169" aria-hidden="true" tabindex="-1"></a>                           <span class="at">mc.cores =</span> 4L,</span>
+<span id="cb29-170"><a href="#cb29-170" aria-hidden="true" tabindex="-1"></a>                           <span class="at">verbose =</span> <span class="cn">TRUE</span></span>
+<span id="cb29-171"><a href="#cb29-171" aria-hidden="true" tabindex="-1"></a>                           )</span>
+<span id="cb29-172"><a href="#cb29-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-173"><a href="#cb29-173" aria-hidden="true" tabindex="-1"></a><span class="fu">FindTopicsNumber_plot</span>(result)</span>
+<span id="cb29-174"><a href="#cb29-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-175"><a href="#cb29-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-176"><a href="#cb29-176" aria-hidden="true" tabindex="-1"></a><span class="do">##Etape 2 : comparaison des solutions</span></span>
+<span id="cb29-177"><a href="#cb29-177" aria-hidden="true" tabindex="-1"></a>para <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">k =</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">10</span>))</span>
+<span id="cb29-178"><a href="#cb29-178" aria-hidden="true" tabindex="-1"></a>lemma_tm <span class="ot">&lt;-</span> para <span class="sc">%&gt;%</span></span>
+<span id="cb29-179"><a href="#cb29-179" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lda =</span> <span class="fu">map</span>(k,</span>
+<span id="cb29-180"><a href="#cb29-180" aria-hidden="true" tabindex="-1"></a>                   <span class="cf">function</span>(k) <span class="fu">LDA</span>(</span>
+<span id="cb29-181"><a href="#cb29-181" aria-hidden="true" tabindex="-1"></a>                     <span class="at">k=</span>k,</span>
+<span id="cb29-182"><a href="#cb29-182" aria-hidden="true" tabindex="-1"></a>                     <span class="at">x=</span>dtm_new,</span>
+<span id="cb29-183"><a href="#cb29-183" aria-hidden="true" tabindex="-1"></a>                     <span class="at">method=</span><span class="st">"Gibbs"</span>,</span>
+<span id="cb29-184"><a href="#cb29-184" aria-hidden="true" tabindex="-1"></a>                     <span class="at">control=</span><span class="fu">list</span>(<span class="at">seed =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">4</span>,</span>
+<span id="cb29-185"><a href="#cb29-185" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">nstart =</span> <span class="dv">5</span>,</span>
+<span id="cb29-186"><a href="#cb29-186" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">best =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb29-187"><a href="#cb29-187" aria-hidden="true" tabindex="-1"></a>                     )</span>
+<span id="cb29-188"><a href="#cb29-188" aria-hidden="true" tabindex="-1"></a>                   )</span>
+<span id="cb29-189"><a href="#cb29-189" aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb29-190"><a href="#cb29-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-191"><a href="#cb29-191" aria-hidden="true" tabindex="-1"></a>lemma_tm <span class="ot">&lt;-</span> lemma_tm <span class="sc">%&gt;%</span></span>
+<span id="cb29-192"><a href="#cb29-192" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lda_gamma =</span> <span class="fu">map</span>(<span class="at">.x=</span>lda,</span>
+<span id="cb29-193"><a href="#cb29-193" aria-hidden="true" tabindex="-1"></a>                         <span class="at">.f=</span>tidytext<span class="sc">::</span>tidy,</span>
+<span id="cb29-194"><a href="#cb29-194" aria-hidden="true" tabindex="-1"></a>                         <span class="at">matrix=</span><span class="st">"gamma"</span>))</span>
+<span id="cb29-195"><a href="#cb29-195" aria-hidden="true" tabindex="-1"></a>lemma_tm <span class="sc">%&gt;%</span></span>
+<span id="cb29-196"><a href="#cb29-196" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(lda_gamma) <span class="sc">%&gt;%</span></span>
+<span id="cb29-197"><a href="#cb29-197" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(k, document) <span class="sc">%&gt;%</span></span>
+<span id="cb29-198"><a href="#cb29-198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(gamma)) <span class="sc">%&gt;%</span></span>
+<span id="cb29-199"><a href="#cb29-199" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb29-200"><a href="#cb29-200" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb29-201"><a href="#cb29-201" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>gamma, <span class="at">fill=</span><span class="fu">factor</span>(k))) <span class="sc">+</span></span>
+<span id="cb29-202"><a href="#cb29-202" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb29-203"><a href="#cb29-203" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">name =</span> <span class="st">"Number of</span><span class="sc">\n</span><span class="st">Topics"</span>) <span class="sc">+</span></span>
+<span id="cb29-204"><a href="#cb29-204" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"maximum gamma per document"</span>) <span class="sc">+</span></span>
+<span id="cb29-205"><a href="#cb29-205" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>k) <span class="sc">+</span></span>
+<span id="cb29-206"><a href="#cb29-206" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="dv">1</span><span class="sc">/</span>k),</span>
+<span id="cb29-207"><a href="#cb29-207" aria-hidden="true" tabindex="-1"></a>             <span class="fu">tibble</span>(<span class="at">k=</span>lemma_tm <span class="sc">%$%</span> <span class="fu">unique</span>(k)),</span>
+<span id="cb29-208"><a href="#cb29-208" aria-hidden="true" tabindex="-1"></a>             <span class="at">color=</span><span class="st">"darkred"</span>)</span>
+<span id="cb29-209"><a href="#cb29-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-210"><a href="#cb29-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-211"><a href="#cb29-211" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-212"><a href="#cb29-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-213"><a href="#cb29-213" aria-hidden="true" tabindex="-1"></a><span class="fu">## Représentation graphique</span></span>
+<span id="cb29-214"><a href="#cb29-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-215"><a href="#cb29-215" aria-hidden="true" tabindex="-1"></a>À partir de la solution retenue aux étapes précédentes, on va représenter les différents topics :</span>
+<span id="cb29-216"><a href="#cb29-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-217"><a href="#cb29-217" aria-hidden="true" tabindex="-1"></a><span class="in">```{r lda_graph, message=FALSE}</span></span>
+<span id="cb29-218"><a href="#cb29-218" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)     <span class="co">#pour la réplicabilité des résultats</span></span>
+<span id="cb29-219"><a href="#cb29-219" aria-hidden="true" tabindex="-1"></a>lda <span class="ot">&lt;-</span> <span class="fu">LDA</span>(dtm_new, <span class="at">k =</span> <span class="dv">10</span>)</span>
+<span id="cb29-220"><a href="#cb29-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-221"><a href="#cb29-221" aria-hidden="true" tabindex="-1"></a>lda_res<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">terms</span>(lda, <span class="dv">25</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb29-222"><a href="#cb29-222" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">nom1=</span><span class="st">'Topic 1'</span>,<span class="at">nom2=</span><span class="st">'Topic 2'</span>, <span class="at">nom3=</span><span class="st">'Topic 3'</span>, <span class="at">nom4=</span><span class="st">'Topic 4'</span>, <span class="at">nom5=</span><span class="st">'Topic 5'</span>,<span class="at">nom6=</span><span class="st">'Topic 6'</span>,<span class="at">nom7=</span><span class="st">'Topic 7'</span>, <span class="at">nom8=</span><span class="st">'Topic 8'</span>, <span class="at">nom9=</span><span class="st">'Topic 9'</span>, <span class="at">nom10=</span><span class="st">'Topic 10'</span> )<span class="sc">%&gt;%</span></span>
+<span id="cb29-223"><a href="#cb29-223" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rank=</span><span class="fu">as.numeric</span>(<span class="fu">row.names</span>(.)))<span class="sc">%&gt;%</span></span>
+<span id="cb29-224"><a href="#cb29-224" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>rank, <span class="at">names_to =</span> <span class="st">"topic"</span>, <span class="at">values_to =</span> <span class="st">"term"</span>)</span>
+<span id="cb29-225"><a href="#cb29-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-226"><a href="#cb29-226" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lda_res, <span class="fu">aes</span>(<span class="at">x=</span>topic, <span class="at">y=</span> rank, <span class="at">group =</span>  term , <span class="at">label =</span> term)) <span class="sc">+</span> </span>
+<span id="cb29-227"><a href="#cb29-227" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>() <span class="sc">+</span></span>
+<span id="cb29-228"><a href="#cb29-228" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">color=</span>topic,<span class="at">size=</span><span class="dv">8</span><span class="sc">/</span><span class="fu">log</span>(rank)))<span class="sc">+</span></span>
+<span id="cb29-229"><a href="#cb29-229" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb29-230"><a href="#cb29-230" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_hue</span>()<span class="sc">+</span></span>
+<span id="cb29-231"><a href="#cb29-231" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color=</span><span class="cn">FALSE</span>,<span class="at">size=</span><span class="cn">FALSE</span>)</span>
+<span id="cb29-232"><a href="#cb29-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-233"><a href="#cb29-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-234"><a href="#cb29-234" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-235"><a href="#cb29-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-236"><a href="#cb29-236" aria-hidden="true" tabindex="-1"></a><span class="fu"># *Theory-Driven LDA*</span></span>
+<span id="cb29-237"><a href="#cb29-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-238"><a href="#cb29-238" aria-hidden="true" tabindex="-1"></a>Ici, on va forcer les *topics* grâce à la réalisation d'un dictionnaire. C'est utile quand on cherche à appliquer une théorie qui nous dit ce que l'on cherche à trouver. Par exemple, ici on s'intéresse aux attributs clés des logements oiseaux. Dans d'autre cas, on pourra chercher à expliquer les notes en fonction de *topics* qui reflètent les attributs clés. On peut réaliser le dictionnaire a priori ou après différentes analyses de *topics*, de co-occurences, de fréquence, etc.</span>
+<span id="cb29-239"><a href="#cb29-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-240"><a href="#cb29-240" aria-hidden="true" tabindex="-1"></a>On commence par créer un dictionnaire.</span>
+<span id="cb29-241"><a href="#cb29-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-242"><a href="#cb29-242" aria-hidden="true" tabindex="-1"></a><span class="in">```{r dict}</span></span>
+<span id="cb29-243"><a href="#cb29-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-244"><a href="#cb29-244" aria-hidden="true" tabindex="-1"></a>dict<span class="ot">&lt;-</span><span class="fu">dictionary</span>(<span class="fu">list</span>(<span class="at">produit=</span><span class="fu">c</span>(<span class="st">"produit*"</span>, <span class="st">"cage"</span>,<span class="st">"oiseau"</span>,<span class="st">"graine*"</span>),</span>
+<span id="cb29-245"><a href="#cb29-245" aria-hidden="true" tabindex="-1"></a>                      <span class="at">livraison=</span><span class="fu">c</span>(<span class="st">"livr*"</span>,<span class="st">"recepti*"</span>,<span class="st">"délai"</span>),</span>
+<span id="cb29-246"><a href="#cb29-246" aria-hidden="true" tabindex="-1"></a>                      <span class="at">commande=</span><span class="fu">c</span>(<span class="st">"command*"</span>,<span class="st">"emballage"</span>,<span class="st">"envoi*"</span>),</span>
+<span id="cb29-247"><a href="#cb29-247" aria-hidden="true" tabindex="-1"></a>                      <span class="at">site=</span><span class="st">"*site*"</span>,</span>
+<span id="cb29-248"><a href="#cb29-248" aria-hidden="true" tabindex="-1"></a>                      <span class="at">prix=</span><span class="fu">c</span>(<span class="st">"*prix*"</span>,<span class="st">"frais_port"</span>)</span>
+<span id="cb29-249"><a href="#cb29-249" aria-hidden="true" tabindex="-1"></a>                      ))</span>
+<span id="cb29-250"><a href="#cb29-250" aria-hidden="true" tabindex="-1"></a>dict</span>
+<span id="cb29-251"><a href="#cb29-251" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">dfm_lookup</span>(dfm_new,dict))</span>
+<span id="cb29-252"><a href="#cb29-252" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-253"><a href="#cb29-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-254"><a href="#cb29-254" aria-hidden="true" tabindex="-1"></a>On utilise ensuite le package 'seededlda' pour lancer le modèle semi-supervisé.</span>
+<span id="cb29-255"><a href="#cb29-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-256"><a href="#cb29-256" aria-hidden="true" tabindex="-1"></a><span class="in">```{r seededlda}</span></span>
+<span id="cb29-257"><a href="#cb29-257" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(seededlda)</span>
+<span id="cb29-258"><a href="#cb29-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-259"><a href="#cb29-259" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb29-260"><a href="#cb29-260" aria-hidden="true" tabindex="-1"></a>slda<span class="ot">&lt;-</span><span class="fu">textmodel_seededlda</span>(dfm_new, dict, <span class="at">residual =</span> T)</span>
+<span id="cb29-261"><a href="#cb29-261" aria-hidden="true" tabindex="-1"></a><span class="fu">terms</span>(slda,<span class="dv">20</span>)</span>
+<span id="cb29-262"><a href="#cb29-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-263"><a href="#cb29-263" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-264"><a href="#cb29-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-265"><a href="#cb29-265" aria-hidden="true" tabindex="-1"></a><span class="fu"># Expliquer les notes</span></span>
+<span id="cb29-266"><a href="#cb29-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-267"><a href="#cb29-267" aria-hidden="true" tabindex="-1"></a>Dans cette dernière partie, nous allons nous intéresser aux notes et tenter de les expliquer à l'aide de l'analyse de *topics*.</span>
+<span id="cb29-268"><a href="#cb29-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-269"><a href="#cb29-269" aria-hidden="true" tabindex="-1"></a><span class="fu">## NPS</span></span>
+<span id="cb29-270"><a href="#cb29-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-271"><a href="#cb29-271" aria-hidden="true" tabindex="-1"></a>Dans un premier temps, nous allons regarder le Net Promoter Score (NPS), puis nous étudierons les discours des promoteurs, détracteurs et passifs.</span>
+<span id="cb29-272"><a href="#cb29-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-273"><a href="#cb29-273" aria-hidden="true" tabindex="-1"></a>Tout d'abord, nous créons nos catégories en fonction des notes.</span>
+<span id="cb29-274"><a href="#cb29-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-275"><a href="#cb29-275" aria-hidden="true" tabindex="-1"></a><span class="in">```{r nps}</span></span>
+<span id="cb29-276"><a href="#cb29-276" aria-hidden="true" tabindex="-1"></a>col<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"gold"</span>, <span class="st">"chartreuse"</span>)</span>
+<span id="cb29-277"><a href="#cb29-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-278"><a href="#cb29-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-279"><a href="#cb29-279" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span>data <span class="sc">%&gt;%</span></span>
+<span id="cb29-280"><a href="#cb29-280" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">NPS=</span><span class="fu">case_when</span>(note<span class="sc">&lt;</span><span class="dv">4</span><span class="sc">~</span><span class="st">"Détracteurs"</span>,</span>
+<span id="cb29-281"><a href="#cb29-281" aria-hidden="true" tabindex="-1"></a>                       note<span class="sc">==</span><span class="dv">4</span><span class="sc">~</span><span class="st">"Passifs"</span>,</span>
+<span id="cb29-282"><a href="#cb29-282" aria-hidden="true" tabindex="-1"></a>                       note<span class="sc">&gt;</span><span class="dv">4</span><span class="sc">~</span><span class="st">"Promoteurs"</span>))</span>
+<span id="cb29-283"><a href="#cb29-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-284"><a href="#cb29-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-285"><a href="#cb29-285" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x=</span>note))<span class="sc">+</span></span>
+<span id="cb29-286"><a href="#cb29-286" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="fu">aes</span>(<span class="at">fill=</span>NPS))<span class="sc">+</span></span>
+<span id="cb29-287"><a href="#cb29-287" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>( <span class="at">title=</span> <span class="st">" Distribution des scores NPS"</span>, </span>
+<span id="cb29-288"><a href="#cb29-288" aria-hidden="true" tabindex="-1"></a>        <span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">"Moyenne du NPS de l'échantillon"</span>,<span class="fu">round</span>(<span class="fu">mean</span>(data<span class="sc">$</span>note),<span class="dv">1</span>)), </span>
+<span id="cb29-289"><a href="#cb29-289" aria-hidden="true" tabindex="-1"></a>        <span class="at">caption =</span> <span class="fu">paste</span>(<span class="st">"Data : TrustPilot, n="</span>,<span class="fu">nrow</span>(data)), </span>
+<span id="cb29-290"><a href="#cb29-290" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"Fréquence"</span>)<span class="sc">+</span> </span>
+<span id="cb29-291"><a href="#cb29-291" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span>col)<span class="sc">+</span></span>
+<span id="cb29-292"><a href="#cb29-292" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span>
+<span id="cb29-293"><a href="#cb29-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-294"><a href="#cb29-294" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-295"><a href="#cb29-295" aria-hidden="true" tabindex="-1"></a>Puis nous réalisons un nuage de mots pour chaque groupe, afin d'avoir une idée de ce qui est exprimé.</span>
+<span id="cb29-296"><a href="#cb29-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-297"><a href="#cb29-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-298"><a href="#cb29-298" aria-hidden="true" tabindex="-1"></a><span class="in">```{r keyness1}</span></span>
+<span id="cb29-299"><a href="#cb29-299" aria-hidden="true" tabindex="-1"></a>dfm_new<span class="sc">$</span>NPS<span class="ot">&lt;-</span>data<span class="sc">$</span>NPS</span>
+<span id="cb29-300"><a href="#cb29-300" aria-hidden="true" tabindex="-1"></a><span class="co"># docvars(toks)</span></span>
+<span id="cb29-301"><a href="#cb29-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-302"><a href="#cb29-302" aria-hidden="true" tabindex="-1"></a>dfm_gp <span class="ot">&lt;-</span>dfm_new <span class="sc">%&gt;%</span></span>
+<span id="cb29-303"><a href="#cb29-303" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dfm_group</span>(<span class="at">groups =</span> NPS)</span>
+<span id="cb29-304"><a href="#cb29-304" aria-hidden="true" tabindex="-1"></a><span class="co"># dfm_gp</span></span>
+<span id="cb29-305"><a href="#cb29-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-306"><a href="#cb29-306" aria-hidden="true" tabindex="-1"></a>stat<span class="ot">&lt;-</span> dfm_gp <span class="sc">%&gt;%</span> </span>
+<span id="cb29-307"><a href="#cb29-307" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textstat_frequency</span>(<span class="at">n =</span> <span class="dv">30</span>,  <span class="at">groups =</span> NPS)</span>
+<span id="cb29-308"><a href="#cb29-308" aria-hidden="true" tabindex="-1"></a><span class="co"># stat</span></span>
+<span id="cb29-309"><a href="#cb29-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-310"><a href="#cb29-310" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(stat, <span class="fu">aes</span>(<span class="at">label =</span> feature)) <span class="sc">+</span></span>
+<span id="cb29-311"><a href="#cb29-311" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_wordcloud</span>(<span class="fu">aes</span>(<span class="at">size=</span><span class="fu">log</span>(frequency), <span class="at">color=</span>group)) <span class="sc">+</span></span>
+<span id="cb29-312"><a href="#cb29-312" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb29-313"><a href="#cb29-313" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(group))<span class="sc">+</span></span>
+<span id="cb29-314"><a href="#cb29-314" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values=</span>col)<span class="sc">+</span> </span>
+<span id="cb29-315"><a href="#cb29-315" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Nuage des 30 mots les plus fréquents(Par groupes)"</span>,</span>
+<span id="cb29-316"><a href="#cb29-316" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"La taille des mots est proportionnelle au log de leurs fréquences"</span>)</span>
+<span id="cb29-317"><a href="#cb29-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-318"><a href="#cb29-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-319"><a href="#cb29-319" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-320"><a href="#cb29-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-321"><a href="#cb29-321" aria-hidden="true" tabindex="-1"></a>Maintenant, nous nous intéressons à ce qui caractérise chacun des groupes par rapport aux autres, grâce à la mesure du *keyness*.</span>
+<span id="cb29-322"><a href="#cb29-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-323"><a href="#cb29-323" aria-hidden="true" tabindex="-1"></a><span class="in">```{r keyness2}</span></span>
+<span id="cb29-324"><a href="#cb29-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-325"><a href="#cb29-325" aria-hidden="true" tabindex="-1"></a>graph_promoteur<span class="ot">&lt;-</span><span class="fu">textstat_keyness</span>(dfm_gp, <span class="at">target =</span> <span class="st">"Promoteurs"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb29-326"><a href="#cb29-326" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textplot_keyness</span>(<span class="at">n =</span> 30L, <span class="at">labelsize =</span> <span class="dv">2</span>,   <span class="at">show_legend =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb29-327"><a href="#cb29-327" aria-hidden="true" tabindex="-1"></a>                     <span class="at">show_reference =</span> <span class="cn">FALSE</span>,   <span class="at">color =</span> <span class="fu">c</span>(<span class="st">"Darkgreen"</span>, <span class="st">"gray"</span>))<span class="sc">+</span></span>
+<span id="cb29-328"><a href="#cb29-328" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="cn">NULL</span>)</span>
+<span id="cb29-329"><a href="#cb29-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-330"><a href="#cb29-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-331"><a href="#cb29-331" aria-hidden="true" tabindex="-1"></a>graph_detracteur <span class="ot">&lt;-</span> <span class="fu">textstat_keyness</span>(dfm_gp, <span class="at">target =</span> <span class="st">"Détracteurs"</span> )<span class="sc">%&gt;%</span></span>
+<span id="cb29-332"><a href="#cb29-332" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textplot_keyness</span>(<span class="at">n =</span> 30L, <span class="at">labelsize =</span> <span class="dv">2</span>,   <span class="at">show_legend =</span> <span class="cn">FALSE</span>,   </span>
+<span id="cb29-333"><a href="#cb29-333" aria-hidden="true" tabindex="-1"></a>                     <span class="at">show_reference =</span> <span class="cn">FALSE</span>,   <span class="at">color =</span> <span class="fu">c</span>(<span class="st">"firebrick"</span>, <span class="st">"gray"</span>))<span class="sc">+</span> </span>
+<span id="cb29-334"><a href="#cb29-334" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="cn">NULL</span>)</span>
+<span id="cb29-335"><a href="#cb29-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-336"><a href="#cb29-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-337"><a href="#cb29-337" aria-hidden="true" tabindex="-1"></a>graph_passif <span class="ot">&lt;-</span> <span class="fu">textstat_keyness</span>(dfm_gp, <span class="at">target =</span> <span class="st">"Passifs"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb29-338"><a href="#cb29-338" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textplot_keyness</span>(<span class="at">n =</span> 30L, <span class="at">labelsize =</span> <span class="dv">2</span>,   <span class="at">show_legend =</span> <span class="cn">FALSE</span>,   <span class="at">show_reference =</span> <span class="cn">FALSE</span>,    <span class="at">color =</span> <span class="fu">c</span>(<span class="st">"gold2"</span>, <span class="st">"gray"</span>))<span class="sc">+</span></span>
+<span id="cb29-339"><a href="#cb29-339" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="cn">NULL</span>)</span>
+<span id="cb29-340"><a href="#cb29-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-341"><a href="#cb29-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-342"><a href="#cb29-342" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
+<span id="cb29-343"><a href="#cb29-343" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span> <span class="fu">plot_grid</span>(graph_detracteur, graph_passif ,graph_promoteur,  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">'Détracteurs'</span>, <span class="st">'Passifs'</span>, <span class="st">'Promoteurs'</span>), <span class="at">label_size =</span> <span class="dv">10</span>, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb29-344"><a href="#cb29-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-345"><a href="#cb29-345" aria-hidden="true" tabindex="-1"></a>title <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>() <span class="sc">+</span> <span class="fu">draw_label</span>(<span class="st">"NPS : Les raisons qui conduisent à la recommandation (keyness)"</span>, <span class="at">fontface=</span><span class="st">'bold'</span>)</span>
+<span id="cb29-346"><a href="#cb29-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-347"><a href="#cb29-347" aria-hidden="true" tabindex="-1"></a>note <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>()<span class="sc">+</span> <span class="fu">draw_text</span>(<span class="st">"Les valeurs représentent le keyness des termes.</span><span class="sc">\n</span><span class="st">Il mesure leur caractère distinctif par une statistique du chi²"</span>, <span class="at">size=</span><span class="dv">8</span>,<span class="at">x =</span> <span class="fl">0.5</span>, <span class="at">y =</span> <span class="fl">0.5</span>)</span>
+<span id="cb29-348"><a href="#cb29-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-349"><a href="#cb29-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-350"><a href="#cb29-350" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(title, p,note, <span class="at">ncol=</span><span class="dv">1</span>, <span class="at">rel_heights=</span><span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">1</span>)) <span class="co"># rel_heights values control title margins</span></span>
+<span id="cb29-351"><a href="#cb29-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-352"><a href="#cb29-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-353"><a href="#cb29-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-354"><a href="#cb29-354" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-355"><a href="#cb29-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-356"><a href="#cb29-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-357"><a href="#cb29-357" aria-hidden="true" tabindex="-1"></a><span class="fu">## En fonction des topics</span></span>
+<span id="cb29-358"><a href="#cb29-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-359"><a href="#cb29-359" aria-hidden="true" tabindex="-1"></a>Maintenant, nous cherchons à voir la répartition des *topics* dans les notes, pour comprendre si certains *topics* contribuent plus ou moins à la satisfaction.</span>
+<span id="cb29-360"><a href="#cb29-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-361"><a href="#cb29-361" aria-hidden="true" tabindex="-1"></a><span class="in">```{r note}</span></span>
+<span id="cb29-362"><a href="#cb29-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-363"><a href="#cb29-363" aria-hidden="true" tabindex="-1"></a>theta<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(slda<span class="sc">$</span>theta)<span class="sc">%&gt;%</span><span class="fu">mutate</span>(<span class="at">doc_id=</span><span class="fu">as.numeric</span>(<span class="fu">row.names</span>(.)))</span>
+<span id="cb29-364"><a href="#cb29-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-365"><a href="#cb29-365" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">inner_join</span>(data, theta)</span>
+<span id="cb29-366"><a href="#cb29-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-367"><a href="#cb29-367" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span>data<span class="sc">%&gt;%</span><span class="fu">select</span>(note, produit, livraison, commande, site,prix, other)<span class="sc">%&gt;%</span></span>
+<span id="cb29-368"><a href="#cb29-368" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>note, <span class="at">names_to =</span> <span class="st">"topic"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>)</span>
+<span id="cb29-369"><a href="#cb29-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-370"><a href="#cb29-370" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(foo,<span class="fu">aes</span>(<span class="at">x=</span>note, <span class="at">y=</span>value, <span class="at">group=</span>topic))<span class="sc">+</span></span>
+<span id="cb29-371"><a href="#cb29-371" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">"fill"</span>,<span class="at">stat=</span><span class="st">"identity"</span>, <span class="fu">aes</span>(<span class="at">fill=</span>topic))<span class="sc">+</span></span>
+<span id="cb29-372"><a href="#cb29-372" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Spectral"</span>)<span class="sc">+</span></span>
+<span id="cb29-373"><a href="#cb29-373" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb29-374"><a href="#cb29-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-375"><a href="#cb29-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-376"><a href="#cb29-376" aria-hidden="true" tabindex="-1"></a><span class="co">#Pour finir, une petite régression !</span></span>
+<span id="cb29-377"><a href="#cb29-377" aria-hidden="true" tabindex="-1"></a>fit<span class="ot">&lt;-</span><span class="fu">lm</span>(note<span class="sc">~</span>produit<span class="sc">+</span>livraison<span class="sc">+</span>commande<span class="sc">+</span>site<span class="sc">+</span>prix, <span class="at">data =</span>data)</span>
+<span id="cb29-378"><a href="#cb29-378" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span>
+<span id="cb29-379"><a href="#cb29-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-380"><a href="#cb29-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-381"><a href="#cb29-381" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+</body></html>
