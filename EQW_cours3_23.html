@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Sophie Balech">
-<meta name="dcterms.date" content="2023-09-20">
+<meta name="dcterms.date" content="2023-09-29">
 
 <title>Etudes qualitatives sur le web</title>
 <style>
@@ -73,6 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="EQW_cours3_23_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -105,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 20, 2023</p>
+        <p class="date">September 29, 2023</p>
       </div>
     </div>
     
@@ -857,258 +858,260 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
 <span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
 <span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: left</span></span>
-<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
-<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
-<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
-<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
-<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> visual</span></span>
-<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a><span class="co">    css: styles.css</span></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> visual</span></span>
 <span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=TRUE,output=FALSE}</span></span>
-<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(</span>
-<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>  <span class="at">echo =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">message =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>  <span class="at">warning =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span>
-<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textstats)</span>
-<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textplots)</span>
-<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
-<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a><span class="fu">display.brewer.all</span>()</span>
-<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a><span class="fu"># Les données</span></span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=TRUE,output=FALSE}</span></span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(</span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>  <span class="at">echo =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>  <span class="at">message =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a>  <span class="at">warning =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span>
+<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textstats)</span>
+<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textplots)</span>
+<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a><span class="fu">display.brewer.all</span>()</span>
+<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-44"><a href="#cb24-44" aria-hidden="true" tabindex="-1"></a><span class="in">```{r data, warning=FALSE}</span></span>
-<span id="cb24-45"><a href="#cb24-45" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data_trustpilot_oiseaux.csv"</span>)</span>
-<span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-47"><a href="#cb24-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-48"><a href="#cb24-48" aria-hidden="true" tabindex="-1"></a><span class="fu"># *Sentiment analysis*</span></span>
+<span id="cb24-44"><a href="#cb24-44" aria-hidden="true" tabindex="-1"></a><span class="fu"># Les données</span></span>
+<span id="cb24-45"><a href="#cb24-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{r data, warning=FALSE}</span></span>
+<span id="cb24-47"><a href="#cb24-47" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data_trustpilot_oiseaux.csv"</span>)</span>
+<span id="cb24-48"><a href="#cb24-48" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb24-49"><a href="#cb24-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-50"><a href="#cb24-50" aria-hidden="true" tabindex="-1"></a>On va réaliser une analyse du sentiment du corpus. Pour cela, on utilise le dictionnaire des sentiments et émotions NRC, car il est disponible dans 40 langues, dont le français. Il existe d'autres dictionnaires de sentiments (positif vs négatif), par exemple AFINN ou BING, ainsi que des dictionnaires thématiques (LIWC par exemple), mais ils sont en anglais ou payants, donc utilisables pour des corpus en anglais ou lorsqu'on dispose d'un budget. Les dernières évolutions du traitement en langage naturel des IA (transformers et autres, dont ChatGPT est un exemple), permettent d'autres approches très pertinentes, en utilisant le *machine learning*, mais cela va au-delà des objectifs de ce cours.</span>
+<span id="cb24-50"><a href="#cb24-50" aria-hidden="true" tabindex="-1"></a><span class="fu"># *Sentiment analysis*</span></span>
 <span id="cb24-51"><a href="#cb24-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-52"><a href="#cb24-52" aria-hidden="true" tabindex="-1"></a>Ici, on utilise le dictionnaire NRC à travers le package *syuzhet*. La fonction *get_nrc_sentiment* prend en entrée un vecteur de type caractère.</span>
+<span id="cb24-52"><a href="#cb24-52" aria-hidden="true" tabindex="-1"></a>On va réaliser une analyse du sentiment du corpus. Pour cela, on utilise le dictionnaire des sentiments et émotions NRC, car il est disponible dans 40 langues, dont le français. Il existe d'autres dictionnaires de sentiments (positif vs négatif), par exemple AFINN ou BING, ainsi que des dictionnaires thématiques (LIWC par exemple), mais ils sont en anglais ou payants, donc utilisables pour des corpus en anglais ou lorsqu'on dispose d'un budget. Les dernières évolutions du traitement en langage naturel des IA (transformers et autres, dont ChatGPT est un exemple), permettent d'autres approches très pertinentes, en utilisant le *machine learning*, mais cela va au-delà des objectifs de ce cours.</span>
 <span id="cb24-53"><a href="#cb24-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-54"><a href="#cb24-54" aria-hidden="true" tabindex="-1"></a><span class="in">```{r annot_sent}</span></span>
-<span id="cb24-55"><a href="#cb24-55" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(syuzhet)</span>
-<span id="cb24-56"><a href="#cb24-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-57"><a href="#cb24-57" aria-hidden="true" tabindex="-1"></a><span class="co"># d&lt;-get_nrc_sentiment(data$comments, language = "french")</span></span>
-<span id="cb24-58"><a href="#cb24-58" aria-hidden="true" tabindex="-1"></a><span class="co"># write_rds(d, "sentiment_trustpilot_oiseaux.rds")</span></span>
-<span id="cb24-59"><a href="#cb24-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-60"><a href="#cb24-60" aria-hidden="true" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">read_rds</span>(<span class="st">"sentiment_trustpilot_oiseaux.rds"</span>)</span>
-<span id="cb24-61"><a href="#cb24-61" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(d, <span class="at">digits=</span><span class="dv">1</span>)</span>
-<span id="cb24-62"><a href="#cb24-62" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">cbind</span>(data,d)</span>
-<span id="cb24-63"><a href="#cb24-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-64"><a href="#cb24-64" aria-hidden="true" tabindex="-1"></a>data[<span class="dv">600</span>,<span class="dv">8</span><span class="sc">:</span><span class="dv">17</span>]</span>
-<span id="cb24-65"><a href="#cb24-65" aria-hidden="true" tabindex="-1"></a>data[<span class="dv">600</span>,<span class="st">"comments"</span>]</span>
-<span id="cb24-66"><a href="#cb24-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-67"><a href="#cb24-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-68"><a href="#cb24-68" aria-hidden="true" tabindex="-1"></a>Le dictionnaire comprend 10 variables, 8 émotions et 2 sentiments. Pour représenter les données, nous avons besoin de les transformer.</span>
+<span id="cb24-54"><a href="#cb24-54" aria-hidden="true" tabindex="-1"></a>Ici, on utilise le dictionnaire NRC à travers le package *syuzhet*. La fonction *get_nrc_sentiment* prend en entrée un vecteur de type caractère.</span>
+<span id="cb24-55"><a href="#cb24-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-56"><a href="#cb24-56" aria-hidden="true" tabindex="-1"></a><span class="in">```{r annot_sent}</span></span>
+<span id="cb24-57"><a href="#cb24-57" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(syuzhet)</span>
+<span id="cb24-58"><a href="#cb24-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-59"><a href="#cb24-59" aria-hidden="true" tabindex="-1"></a><span class="co"># d&lt;-get_nrc_sentiment(data$comments, language = "french")</span></span>
+<span id="cb24-60"><a href="#cb24-60" aria-hidden="true" tabindex="-1"></a><span class="co"># write_rds(d, "sentiment_trustpilot_oiseaux.rds")</span></span>
+<span id="cb24-61"><a href="#cb24-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-62"><a href="#cb24-62" aria-hidden="true" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">read_rds</span>(<span class="st">"sentiment_trustpilot_oiseaux.rds"</span>)</span>
+<span id="cb24-63"><a href="#cb24-63" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(d, <span class="at">digits=</span><span class="dv">1</span>)</span>
+<span id="cb24-64"><a href="#cb24-64" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">cbind</span>(data,d)</span>
+<span id="cb24-65"><a href="#cb24-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-66"><a href="#cb24-66" aria-hidden="true" tabindex="-1"></a>data[<span class="dv">600</span>,<span class="dv">8</span><span class="sc">:</span><span class="dv">17</span>]</span>
+<span id="cb24-67"><a href="#cb24-67" aria-hidden="true" tabindex="-1"></a>data[<span class="dv">600</span>,<span class="st">"comments"</span>]</span>
+<span id="cb24-68"><a href="#cb24-68" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb24-69"><a href="#cb24-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-70"><a href="#cb24-70" aria-hidden="true" tabindex="-1"></a><span class="in">```{r viz_nrc}</span></span>
-<span id="cb24-71"><a href="#cb24-71" aria-hidden="true" tabindex="-1"></a>e<span class="ot">&lt;-</span>d<span class="sc">%&gt;%</span></span>
-<span id="cb24-72"><a href="#cb24-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(),<span class="at">names_to =</span> <span class="st">"sentiment"</span>, <span class="at">values_to =</span> <span class="st">"nb"</span>)</span>
-<span id="cb24-73"><a href="#cb24-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-74"><a href="#cb24-74" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(e, <span class="fu">aes</span>(sentiment, nb))<span class="sc">+</span></span>
-<span id="cb24-75"><a href="#cb24-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill=</span>sentiment),<span class="at">show.legend =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
-<span id="cb24-76"><a href="#cb24-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
-<span id="cb24-77"><a href="#cb24-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span>
-<span id="cb24-78"><a href="#cb24-78" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-79"><a href="#cb24-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-80"><a href="#cb24-80" aria-hidden="true" tabindex="-1"></a><span class="fu">## Les sentiments </span></span>
+<span id="cb24-70"><a href="#cb24-70" aria-hidden="true" tabindex="-1"></a>Le dictionnaire comprend 10 variables, 8 émotions et 2 sentiments. Pour représenter les données, nous avons besoin de les transformer.</span>
+<span id="cb24-71"><a href="#cb24-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-72"><a href="#cb24-72" aria-hidden="true" tabindex="-1"></a><span class="in">```{r viz_nrc}</span></span>
+<span id="cb24-73"><a href="#cb24-73" aria-hidden="true" tabindex="-1"></a>e<span class="ot">&lt;-</span>d<span class="sc">%&gt;%</span></span>
+<span id="cb24-74"><a href="#cb24-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(),<span class="at">names_to =</span> <span class="st">"sentiment"</span>, <span class="at">values_to =</span> <span class="st">"nb"</span>)</span>
+<span id="cb24-75"><a href="#cb24-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-76"><a href="#cb24-76" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(e, <span class="fu">aes</span>(sentiment, nb))<span class="sc">+</span></span>
+<span id="cb24-77"><a href="#cb24-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill=</span>sentiment),<span class="at">show.legend =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb24-78"><a href="#cb24-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb24-79"><a href="#cb24-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span>
+<span id="cb24-80"><a href="#cb24-80" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb24-81"><a href="#cb24-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-82"><a href="#cb24-82" aria-hidden="true" tabindex="-1"></a>Intéressons-nous d'abord aux sentiments :</span>
+<span id="cb24-82"><a href="#cb24-82" aria-hidden="true" tabindex="-1"></a><span class="fu">## Les sentiments </span></span>
 <span id="cb24-83"><a href="#cb24-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-84"><a href="#cb24-84" aria-hidden="true" tabindex="-1"></a><span class="in">```{r viz_sent}</span></span>
-<span id="cb24-85"><a href="#cb24-85" aria-hidden="true" tabindex="-1"></a>sent<span class="ot">&lt;-</span>d<span class="sc">%&gt;%</span></span>
-<span id="cb24-86"><a href="#cb24-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(positive,negative)<span class="sc">%&gt;%</span></span>
-<span id="cb24-87"><a href="#cb24-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"sentiment"</span>, <span class="at">values_to =</span> <span class="st">"nb"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb24-88"><a href="#cb24-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">nb=</span><span class="fu">sum</span>(nb), <span class="at">.by =</span> sentiment)<span class="sc">%&gt;%</span></span>
-<span id="cb24-89"><a href="#cb24-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop=</span>nb<span class="sc">/</span><span class="fu">sum</span>(nb))</span>
-<span id="cb24-90"><a href="#cb24-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-91"><a href="#cb24-91" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>sent,  <span class="fu">aes</span>(<span class="at">x=</span>sentiment, <span class="at">y=</span>prop)) <span class="sc">+</span> </span>
-<span id="cb24-92"><a href="#cb24-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>, <span class="fu">aes</span>(<span class="at">fill=</span>sentiment), <span class="at">show.legend =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
-<span id="cb24-93"><a href="#cb24-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
-<span id="cb24-94"><a href="#cb24-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Répartition des sentiments dans le corpus Oiseaux Mania"</span>,<span class="at">caption =</span> <span class="st">"Données TrustPilot"</span>,<span class="at">x=</span><span class="st">"Sentiments"</span>,<span class="at">y=</span><span class="cn">NULL</span>)<span class="sc">+</span></span>
-<span id="cb24-95"><a href="#cb24-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"lightgreen"</span>))<span class="sc">+</span></span>
-<span id="cb24-96"><a href="#cb24-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span>
-<span id="cb24-97"><a href="#cb24-97" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-98"><a href="#cb24-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-99"><a href="#cb24-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-100"><a href="#cb24-100" aria-hidden="true" tabindex="-1"></a>Le corpus est très largement positif, ce qui n'est pas étonnant. On peut aussi créer d'autres indicateurs, comme la valence (différence positif-négatif) ou l'expressivité (somme de positif+négatif). </span>
+<span id="cb24-84"><a href="#cb24-84" aria-hidden="true" tabindex="-1"></a>Intéressons-nous d'abord aux sentiments :</span>
+<span id="cb24-85"><a href="#cb24-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-86"><a href="#cb24-86" aria-hidden="true" tabindex="-1"></a><span class="in">```{r viz_sent}</span></span>
+<span id="cb24-87"><a href="#cb24-87" aria-hidden="true" tabindex="-1"></a>sent<span class="ot">&lt;-</span>d<span class="sc">%&gt;%</span></span>
+<span id="cb24-88"><a href="#cb24-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(positive,negative)<span class="sc">%&gt;%</span></span>
+<span id="cb24-89"><a href="#cb24-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"sentiment"</span>, <span class="at">values_to =</span> <span class="st">"nb"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb24-90"><a href="#cb24-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">nb=</span><span class="fu">sum</span>(nb), <span class="at">.by =</span> sentiment)<span class="sc">%&gt;%</span></span>
+<span id="cb24-91"><a href="#cb24-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop=</span>nb<span class="sc">/</span><span class="fu">sum</span>(nb))</span>
+<span id="cb24-92"><a href="#cb24-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-93"><a href="#cb24-93" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>sent,  <span class="fu">aes</span>(<span class="at">x=</span>sentiment, <span class="at">y=</span>prop)) <span class="sc">+</span> </span>
+<span id="cb24-94"><a href="#cb24-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>, <span class="fu">aes</span>(<span class="at">fill=</span>sentiment), <span class="at">show.legend =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb24-95"><a href="#cb24-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
+<span id="cb24-96"><a href="#cb24-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Répartition des sentiments dans le corpus Oiseaux Mania"</span>,<span class="at">caption =</span> <span class="st">"Données TrustPilot"</span>,<span class="at">x=</span><span class="st">"Sentiments"</span>,<span class="at">y=</span><span class="cn">NULL</span>)<span class="sc">+</span></span>
+<span id="cb24-97"><a href="#cb24-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"lightgreen"</span>))<span class="sc">+</span></span>
+<span id="cb24-98"><a href="#cb24-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span>
+<span id="cb24-99"><a href="#cb24-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-100"><a href="#cb24-100" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-101"><a href="#cb24-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-102"><a href="#cb24-102" aria-hidden="true" tabindex="-1"></a>**Exercice :** personnalisez le graphique ci-dessous pour la variable d'expressivité.</span>
+<span id="cb24-102"><a href="#cb24-102" aria-hidden="true" tabindex="-1"></a>Le corpus est très largement positif, ce qui n'est pas étonnant. On peut aussi créer d'autres indicateurs, comme la valence (différence positif-négatif) ou l'expressivité (somme de positif+négatif). </span>
 <span id="cb24-103"><a href="#cb24-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-104"><a href="#cb24-104" aria-hidden="true" tabindex="-1"></a><span class="in">```{r viz_expr}</span></span>
+<span id="cb24-104"><a href="#cb24-104" aria-hidden="true" tabindex="-1"></a>**Exercice :** personnalisez le graphique ci-dessous pour la variable d'expressivité.</span>
 <span id="cb24-105"><a href="#cb24-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-106"><a href="#cb24-106" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span>data<span class="sc">%&gt;%</span></span>
-<span id="cb24-107"><a href="#cb24-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">nbcar=</span><span class="fu">nchar</span>(comments),</span>
-<span id="cb24-108"><a href="#cb24-108" aria-hidden="true" tabindex="-1"></a>         <span class="at">valence =</span> positive<span class="sc">-</span>negative)</span>
-<span id="cb24-109"><a href="#cb24-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-110"><a href="#cb24-110" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data, <span class="fu">aes</span>(<span class="at">x =</span> valence, <span class="at">y=</span> nbcar))<span class="sc">+</span></span>
-<span id="cb24-111"><a href="#cb24-111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb24-112"><a href="#cb24-112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()<span class="sc">+</span></span>
-<span id="cb24-113"><a href="#cb24-113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Indicateur de valence"</span>, <span class="at">subtitle =</span> <span class="st">"en fonction du nombre de caractères"</span>, <span class="at">caption=</span><span class="st">"Données TrustPilot"</span>)<span class="sc">+</span></span>
-<span id="cb24-114"><a href="#cb24-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb24-115"><a href="#cb24-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-116"><a href="#cb24-116" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-106"><a href="#cb24-106" aria-hidden="true" tabindex="-1"></a><span class="in">```{r viz_expr}</span></span>
+<span id="cb24-107"><a href="#cb24-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-108"><a href="#cb24-108" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span>data<span class="sc">%&gt;%</span></span>
+<span id="cb24-109"><a href="#cb24-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">nbcar=</span><span class="fu">nchar</span>(comments),</span>
+<span id="cb24-110"><a href="#cb24-110" aria-hidden="true" tabindex="-1"></a>         <span class="at">valence =</span> positive<span class="sc">-</span>negative)</span>
+<span id="cb24-111"><a href="#cb24-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-112"><a href="#cb24-112" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data, <span class="fu">aes</span>(<span class="at">x =</span> valence, <span class="at">y=</span> nbcar))<span class="sc">+</span></span>
+<span id="cb24-113"><a href="#cb24-113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb24-114"><a href="#cb24-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()<span class="sc">+</span></span>
+<span id="cb24-115"><a href="#cb24-115" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Indicateur de valence"</span>, <span class="at">subtitle =</span> <span class="st">"en fonction du nombre de caractères"</span>, <span class="at">caption=</span><span class="st">"Données TrustPilot"</span>)<span class="sc">+</span></span>
+<span id="cb24-116"><a href="#cb24-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
 <span id="cb24-117"><a href="#cb24-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-118"><a href="#cb24-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-118"><a href="#cb24-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb24-119"><a href="#cb24-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-120"><a href="#cb24-120" aria-hidden="true" tabindex="-1"></a><span class="fu">## Les émotions</span></span>
+<span id="cb24-120"><a href="#cb24-120" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-121"><a href="#cb24-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-122"><a href="#cb24-122" aria-hidden="true" tabindex="-1"></a>Regardons maintenant ce qu'il en est de la répartition des émotions :</span>
+<span id="cb24-122"><a href="#cb24-122" aria-hidden="true" tabindex="-1"></a><span class="fu">## Les émotions</span></span>
 <span id="cb24-123"><a href="#cb24-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-124"><a href="#cb24-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{r viz_emo}</span></span>
-<span id="cb24-125"><a href="#cb24-125" aria-hidden="true" tabindex="-1"></a><span class="co">#On crée d'abord une palette pour les émotions</span></span>
-<span id="cb24-126"><a href="#cb24-126" aria-hidden="true" tabindex="-1"></a>emocol<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"yellow"</span>,<span class="st">"chartreuse"</span>,<span class="st">"olivedrab3"</span>,<span class="st">"green4"</span>,<span class="st">"royalblue3"</span>,<span class="st">"purple3"</span>,<span class="st">"red3"</span>,<span class="st">"orangered1"</span>) </span>
-<span id="cb24-127"><a href="#cb24-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-128"><a href="#cb24-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-129"><a href="#cb24-129" aria-hidden="true" tabindex="-1"></a>emo<span class="ot">&lt;-</span>d<span class="sc">%&gt;%</span></span>
-<span id="cb24-130"><a href="#cb24-130" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>positive, <span class="sc">-</span>negative)<span class="sc">%&gt;%</span> <span class="co">#On récupère les émotions</span></span>
-<span id="cb24-131"><a href="#cb24-131" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"emotion"</span>, <span class="at">values_to =</span> <span class="st">"nb"</span>)<span class="co">#On transforme le tableau</span></span>
-<span id="cb24-132"><a href="#cb24-132" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb24-133"><a href="#cb24-133" aria-hidden="true" tabindex="-1"></a>emo2<span class="ot">&lt;-</span>emo<span class="sc">%&gt;%</span></span>
-<span id="cb24-134"><a href="#cb24-134" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">nb=</span><span class="fu">sum</span>(nb), <span class="at">.by =</span> emotion)<span class="sc">%&gt;%</span></span>
-<span id="cb24-135"><a href="#cb24-135" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop=</span>nb<span class="sc">/</span><span class="fu">sum</span>(nb),</span>
-<span id="cb24-136"><a href="#cb24-136" aria-hidden="true" tabindex="-1"></a>          <span class="at">emotion=</span><span class="fu">factor</span>(emotion, <span class="at">ordered =</span> <span class="cn">TRUE</span>,<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"joy"</span>,<span class="st">"trust"</span>,<span class="st">"fear"</span>,<span class="st">"surprise"</span>,<span class="st">"sadness"</span>,<span class="st">"disgust"</span>,<span class="st">"anger"</span>,<span class="st">"anticipation"</span>)))</span>
-<span id="cb24-137"><a href="#cb24-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-138"><a href="#cb24-138" aria-hidden="true" tabindex="-1"></a><span class="co">#On crée un graphique circulaire</span></span>
-<span id="cb24-139"><a href="#cb24-139" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>emo2,  <span class="fu">aes</span>(<span class="at">x=</span>emotion, <span class="at">y=</span>prop, <span class="at">colour=</span>emotion)) <span class="sc">+</span> </span>
-<span id="cb24-140"><a href="#cb24-140" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>, <span class="fu">aes</span>(<span class="at">fill=</span>emotion), <span class="at">show.legend =</span> <span class="cn">FALSE</span>)<span class="sc">+</span> </span>
-<span id="cb24-141"><a href="#cb24-141" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span>percent)<span class="sc">+</span></span>
-<span id="cb24-142"><a href="#cb24-142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Distribution des émotions </span><span class="sc">\n</span><span class="st"> dans le corpus Oiseaux Mania"</span>, <span class="at">caption=</span><span class="st">"Données TrustPilot"</span>, <span class="at">x=</span><span class="st">"Emotions"</span>, <span class="at">y=</span><span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb24-143"><a href="#cb24-143" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>()<span class="sc">+</span> </span>
-<span id="cb24-144"><a href="#cb24-144" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values=</span>emocol)<span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values=</span>emocol)<span class="sc">+</span></span>
-<span id="cb24-145"><a href="#cb24-145" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb24-146"><a href="#cb24-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-147"><a href="#cb24-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-148"><a href="#cb24-148" aria-hidden="true" tabindex="-1"></a><span class="co">#On regarde la répartition des émotions dans le corpus :</span></span>
+<span id="cb24-124"><a href="#cb24-124" aria-hidden="true" tabindex="-1"></a>Regardons maintenant ce qu'il en est de la répartition des émotions :</span>
+<span id="cb24-125"><a href="#cb24-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-126"><a href="#cb24-126" aria-hidden="true" tabindex="-1"></a><span class="in">```{r viz_emo}</span></span>
+<span id="cb24-127"><a href="#cb24-127" aria-hidden="true" tabindex="-1"></a><span class="co">#On crée d'abord une palette pour les émotions</span></span>
+<span id="cb24-128"><a href="#cb24-128" aria-hidden="true" tabindex="-1"></a>emocol<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"yellow"</span>,<span class="st">"chartreuse"</span>,<span class="st">"olivedrab3"</span>,<span class="st">"green4"</span>,<span class="st">"royalblue3"</span>,<span class="st">"purple3"</span>,<span class="st">"red3"</span>,<span class="st">"orangered1"</span>) </span>
+<span id="cb24-129"><a href="#cb24-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-130"><a href="#cb24-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-131"><a href="#cb24-131" aria-hidden="true" tabindex="-1"></a>emo<span class="ot">&lt;-</span>d<span class="sc">%&gt;%</span></span>
+<span id="cb24-132"><a href="#cb24-132" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>positive, <span class="sc">-</span>negative)<span class="sc">%&gt;%</span> <span class="co">#On récupère les émotions</span></span>
+<span id="cb24-133"><a href="#cb24-133" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"emotion"</span>, <span class="at">values_to =</span> <span class="st">"nb"</span>)<span class="co">#On transforme le tableau</span></span>
+<span id="cb24-134"><a href="#cb24-134" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb24-135"><a href="#cb24-135" aria-hidden="true" tabindex="-1"></a>emo2<span class="ot">&lt;-</span>emo<span class="sc">%&gt;%</span></span>
+<span id="cb24-136"><a href="#cb24-136" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">nb=</span><span class="fu">sum</span>(nb), <span class="at">.by =</span> emotion)<span class="sc">%&gt;%</span></span>
+<span id="cb24-137"><a href="#cb24-137" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop=</span>nb<span class="sc">/</span><span class="fu">sum</span>(nb),</span>
+<span id="cb24-138"><a href="#cb24-138" aria-hidden="true" tabindex="-1"></a>          <span class="at">emotion=</span><span class="fu">factor</span>(emotion, <span class="at">ordered =</span> <span class="cn">TRUE</span>,<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"joy"</span>,<span class="st">"trust"</span>,<span class="st">"fear"</span>,<span class="st">"surprise"</span>,<span class="st">"sadness"</span>,<span class="st">"disgust"</span>,<span class="st">"anger"</span>,<span class="st">"anticipation"</span>)))</span>
+<span id="cb24-139"><a href="#cb24-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-140"><a href="#cb24-140" aria-hidden="true" tabindex="-1"></a><span class="co">#On crée un graphique circulaire</span></span>
+<span id="cb24-141"><a href="#cb24-141" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>emo2,  <span class="fu">aes</span>(<span class="at">x=</span>emotion, <span class="at">y=</span>prop, <span class="at">colour=</span>emotion)) <span class="sc">+</span> </span>
+<span id="cb24-142"><a href="#cb24-142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>, <span class="fu">aes</span>(<span class="at">fill=</span>emotion), <span class="at">show.legend =</span> <span class="cn">FALSE</span>)<span class="sc">+</span> </span>
+<span id="cb24-143"><a href="#cb24-143" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span>percent)<span class="sc">+</span></span>
+<span id="cb24-144"><a href="#cb24-144" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Distribution des émotions </span><span class="sc">\n</span><span class="st"> dans le corpus Oiseaux Mania"</span>, <span class="at">caption=</span><span class="st">"Données TrustPilot"</span>, <span class="at">x=</span><span class="st">"Emotions"</span>, <span class="at">y=</span><span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb24-145"><a href="#cb24-145" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>()<span class="sc">+</span> </span>
+<span id="cb24-146"><a href="#cb24-146" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values=</span>emocol)<span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values=</span>emocol)<span class="sc">+</span></span>
+<span id="cb24-147"><a href="#cb24-147" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb24-148"><a href="#cb24-148" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-149"><a href="#cb24-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-150"><a href="#cb24-150" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(emo, <span class="fu">aes</span>(<span class="at">x=</span>emotion, <span class="at">y=</span>nb))<span class="sc">+</span></span>
-<span id="cb24-151"><a href="#cb24-151" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">fill=</span>emotion), <span class="at">alpha=</span><span class="fl">0.7</span>,<span class="at">adjust =</span> <span class="dv">2</span>)<span class="sc">+</span></span>
-<span id="cb24-152"><a href="#cb24-152" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values=</span>emocol)<span class="sc">+</span></span>
-<span id="cb24-153"><a href="#cb24-153" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels=</span><span class="cn">NULL</span>)</span>
-<span id="cb24-154"><a href="#cb24-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-155"><a href="#cb24-155" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(emo, <span class="fu">aes</span>(<span class="at">x=</span>emotion, <span class="at">y=</span>nb))<span class="sc">+</span></span>
-<span id="cb24-156"><a href="#cb24-156" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill=</span>emotion,), <span class="at">alpha=</span><span class="fl">0.7</span>,<span class="at">adjust =</span> <span class="dv">2</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
-<span id="cb24-157"><a href="#cb24-157" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values=</span>emocol)</span>
-<span id="cb24-158"><a href="#cb24-158" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-159"><a href="#cb24-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-160"><a href="#cb24-160" aria-hidden="true" tabindex="-1"></a><span class="fu"># Évolution du corpus dans le temps</span></span>
+<span id="cb24-150"><a href="#cb24-150" aria-hidden="true" tabindex="-1"></a><span class="co">#On regarde la répartition des émotions dans le corpus :</span></span>
+<span id="cb24-151"><a href="#cb24-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-152"><a href="#cb24-152" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(emo, <span class="fu">aes</span>(<span class="at">x=</span>emotion, <span class="at">y=</span>nb))<span class="sc">+</span></span>
+<span id="cb24-153"><a href="#cb24-153" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">fill=</span>emotion), <span class="at">alpha=</span><span class="fl">0.7</span>,<span class="at">adjust =</span> <span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb24-154"><a href="#cb24-154" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values=</span>emocol)<span class="sc">+</span></span>
+<span id="cb24-155"><a href="#cb24-155" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels=</span><span class="cn">NULL</span>)</span>
+<span id="cb24-156"><a href="#cb24-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-157"><a href="#cb24-157" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(emo, <span class="fu">aes</span>(<span class="at">x=</span>emotion, <span class="at">y=</span>nb))<span class="sc">+</span></span>
+<span id="cb24-158"><a href="#cb24-158" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill=</span>emotion,), <span class="at">alpha=</span><span class="fl">0.7</span>,<span class="at">adjust =</span> <span class="dv">2</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb24-159"><a href="#cb24-159" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values=</span>emocol)</span>
+<span id="cb24-160"><a href="#cb24-160" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb24-161"><a href="#cb24-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-162"><a href="#cb24-162" aria-hidden="true" tabindex="-1"></a>On va regarder comment les sentiments évoluent dans le temps. On doit tout d'abord créer une variable temporel dans notre jeu de données. Nous en avons déjà une, qui indique la date et l'heure à laquelle le commentaire a été posté. Nous allons la transformer pour regrouper les commentaires en fonction de l'année (on peut le faire pour les jours, les mois, les minutes, ...).</span>
+<span id="cb24-162"><a href="#cb24-162" aria-hidden="true" tabindex="-1"></a><span class="fu"># Évolution du corpus dans le temps</span></span>
 <span id="cb24-163"><a href="#cb24-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-164"><a href="#cb24-164" aria-hidden="true" tabindex="-1"></a><span class="in">```{r year}</span></span>
+<span id="cb24-164"><a href="#cb24-164" aria-hidden="true" tabindex="-1"></a>On va regarder comment les sentiments évoluent dans le temps. On doit tout d'abord créer une variable temporel dans notre jeu de données. Nous en avons déjà une, qui indique la date et l'heure à laquelle le commentaire a été posté. Nous allons la transformer pour regrouper les commentaires en fonction de l'année (on peut le faire pour les jours, les mois, les minutes, ...).</span>
 <span id="cb24-165"><a href="#cb24-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-166"><a href="#cb24-166" aria-hidden="true" tabindex="-1"></a>data<span class="sc">%&gt;%</span><span class="fu">group_by</span>(year)<span class="sc">%&gt;%</span><span class="fu">summarise</span>(<span class="st">'nb com'</span><span class="ot">=</span><span class="fu">n</span>())</span>
+<span id="cb24-166"><a href="#cb24-166" aria-hidden="true" tabindex="-1"></a><span class="in">```{r year}</span></span>
 <span id="cb24-167"><a href="#cb24-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-168"><a href="#cb24-168" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-168"><a href="#cb24-168" aria-hidden="true" tabindex="-1"></a>data<span class="sc">%&gt;%</span><span class="fu">group_by</span>(year)<span class="sc">%&gt;%</span><span class="fu">summarise</span>(<span class="st">'nb com'</span><span class="ot">=</span><span class="fu">n</span>())</span>
 <span id="cb24-169"><a href="#cb24-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-170"><a href="#cb24-170" aria-hidden="true" tabindex="-1"></a>Regardons maintenant comment évolue les sentiments dans le temps :</span>
+<span id="cb24-170"><a href="#cb24-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb24-171"><a href="#cb24-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-172"><a href="#cb24-172" aria-hidden="true" tabindex="-1"></a><span class="in">```{r viz_sent_year}</span></span>
+<span id="cb24-172"><a href="#cb24-172" aria-hidden="true" tabindex="-1"></a>Regardons maintenant comment évolue les sentiments dans le temps :</span>
 <span id="cb24-173"><a href="#cb24-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-174"><a href="#cb24-174" aria-hidden="true" tabindex="-1"></a><span class="co">#les émotions</span></span>
-<span id="cb24-175"><a href="#cb24-175" aria-hidden="true" tabindex="-1"></a><span class="do">##mise en forme des données</span></span>
-<span id="cb24-176"><a href="#cb24-176" aria-hidden="true" tabindex="-1"></a>gen_sent<span class="ot">&lt;-</span>data<span class="sc">%&gt;%</span></span>
-<span id="cb24-177"><a href="#cb24-177" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year=</span><span class="fu">as.factor</span>(year))<span class="sc">%&gt;%</span></span>
-<span id="cb24-178"><a href="#cb24-178" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year)<span class="sc">%&gt;%</span></span>
-<span id="cb24-179"><a href="#cb24-179" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="dv">7</span><span class="sc">:</span><span class="dv">14</span>,<span class="sc">~</span><span class="fu">mean</span>(.x, <span class="at">na.rm =</span> T)))<span class="sc">%&gt;%</span></span>
-<span id="cb24-180"><a href="#cb24-180" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.exclude</span>()<span class="sc">%&gt;%</span></span>
-<span id="cb24-181"><a href="#cb24-181" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>year, <span class="at">names_to =</span> <span class="st">"emotion"</span>, <span class="at">values_to =</span> <span class="st">"mean"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb24-182"><a href="#cb24-182" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">emotion=</span><span class="fu">factor</span>(emotion, <span class="at">ordered =</span> <span class="cn">TRUE</span>,<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"joy"</span>,<span class="st">"trust"</span>,<span class="st">"fear"</span>,<span class="st">"surprise"</span>,<span class="st">"sadness"</span>,<span class="st">"disgust"</span>,<span class="st">"anger"</span>,<span class="st">"anticipation"</span>)))</span>
-<span id="cb24-183"><a href="#cb24-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-184"><a href="#cb24-184" aria-hidden="true" tabindex="-1"></a><span class="do">##graphique</span></span>
-<span id="cb24-185"><a href="#cb24-185" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gen_sent,<span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>mean,<span class="at">group=</span>emotion)) <span class="sc">+</span></span>
-<span id="cb24-186"><a href="#cb24-186" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>emotion), <span class="at">linewidth=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb24-187"><a href="#cb24-187" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
-<span id="cb24-188"><a href="#cb24-188" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> emocol)</span>
-<span id="cb24-189"><a href="#cb24-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-190"><a href="#cb24-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-191"><a href="#cb24-191" aria-hidden="true" tabindex="-1"></a><span class="co">#les sentiments</span></span>
-<span id="cb24-192"><a href="#cb24-192" aria-hidden="true" tabindex="-1"></a><span class="do">##mise en forme des données</span></span>
-<span id="cb24-193"><a href="#cb24-193" aria-hidden="true" tabindex="-1"></a>gen_sent2<span class="ot">&lt;-</span>data<span class="sc">%&gt;%</span></span>
-<span id="cb24-194"><a href="#cb24-194" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year=</span><span class="fu">as.factor</span>(year))<span class="sc">%&gt;%</span></span>
-<span id="cb24-195"><a href="#cb24-195" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year)<span class="sc">%&gt;%</span></span>
-<span id="cb24-196"><a href="#cb24-196" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(positive, negative),<span class="sc">~</span><span class="fu">mean</span>(.x, <span class="at">na.rm =</span> T)))<span class="sc">%&gt;%</span></span>
-<span id="cb24-197"><a href="#cb24-197" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.exclude</span>()<span class="sc">%&gt;%</span></span>
-<span id="cb24-198"><a href="#cb24-198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>year, <span class="at">names_to =</span> <span class="st">"sentiment"</span>,<span class="at">values_to =</span> <span class="st">"mean"</span>)</span>
-<span id="cb24-199"><a href="#cb24-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-200"><a href="#cb24-200" aria-hidden="true" tabindex="-1"></a><span class="do">##graphique</span></span>
-<span id="cb24-201"><a href="#cb24-201" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gen_sent2,<span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>mean,<span class="at">group=</span>sentiment)) <span class="sc">+</span></span>
-<span id="cb24-202"><a href="#cb24-202" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>sentiment), <span class="at">linewidth=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb24-203"><a href="#cb24-203" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
-<span id="cb24-204"><a href="#cb24-204" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"lightgreen"</span>))</span>
-<span id="cb24-205"><a href="#cb24-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-206"><a href="#cb24-206" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-174"><a href="#cb24-174" aria-hidden="true" tabindex="-1"></a><span class="in">```{r viz_sent_year}</span></span>
+<span id="cb24-175"><a href="#cb24-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-176"><a href="#cb24-176" aria-hidden="true" tabindex="-1"></a><span class="co">#les émotions</span></span>
+<span id="cb24-177"><a href="#cb24-177" aria-hidden="true" tabindex="-1"></a><span class="do">##mise en forme des données</span></span>
+<span id="cb24-178"><a href="#cb24-178" aria-hidden="true" tabindex="-1"></a>gen_sent<span class="ot">&lt;-</span>data<span class="sc">%&gt;%</span></span>
+<span id="cb24-179"><a href="#cb24-179" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year=</span><span class="fu">as.factor</span>(year))<span class="sc">%&gt;%</span></span>
+<span id="cb24-180"><a href="#cb24-180" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year)<span class="sc">%&gt;%</span></span>
+<span id="cb24-181"><a href="#cb24-181" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="dv">7</span><span class="sc">:</span><span class="dv">14</span>,<span class="sc">~</span><span class="fu">mean</span>(.x, <span class="at">na.rm =</span> T)))<span class="sc">%&gt;%</span></span>
+<span id="cb24-182"><a href="#cb24-182" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.exclude</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb24-183"><a href="#cb24-183" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>year, <span class="at">names_to =</span> <span class="st">"emotion"</span>, <span class="at">values_to =</span> <span class="st">"mean"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb24-184"><a href="#cb24-184" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">emotion=</span><span class="fu">factor</span>(emotion, <span class="at">ordered =</span> <span class="cn">TRUE</span>,<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"joy"</span>,<span class="st">"trust"</span>,<span class="st">"fear"</span>,<span class="st">"surprise"</span>,<span class="st">"sadness"</span>,<span class="st">"disgust"</span>,<span class="st">"anger"</span>,<span class="st">"anticipation"</span>)))</span>
+<span id="cb24-185"><a href="#cb24-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-186"><a href="#cb24-186" aria-hidden="true" tabindex="-1"></a><span class="do">##graphique</span></span>
+<span id="cb24-187"><a href="#cb24-187" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gen_sent,<span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>mean,<span class="at">group=</span>emotion)) <span class="sc">+</span></span>
+<span id="cb24-188"><a href="#cb24-188" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>emotion), <span class="at">linewidth=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb24-189"><a href="#cb24-189" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb24-190"><a href="#cb24-190" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> emocol)</span>
+<span id="cb24-191"><a href="#cb24-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-192"><a href="#cb24-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-193"><a href="#cb24-193" aria-hidden="true" tabindex="-1"></a><span class="co">#les sentiments</span></span>
+<span id="cb24-194"><a href="#cb24-194" aria-hidden="true" tabindex="-1"></a><span class="do">##mise en forme des données</span></span>
+<span id="cb24-195"><a href="#cb24-195" aria-hidden="true" tabindex="-1"></a>gen_sent2<span class="ot">&lt;-</span>data<span class="sc">%&gt;%</span></span>
+<span id="cb24-196"><a href="#cb24-196" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year=</span><span class="fu">as.factor</span>(year))<span class="sc">%&gt;%</span></span>
+<span id="cb24-197"><a href="#cb24-197" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year)<span class="sc">%&gt;%</span></span>
+<span id="cb24-198"><a href="#cb24-198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(positive, negative),<span class="sc">~</span><span class="fu">mean</span>(.x, <span class="at">na.rm =</span> T)))<span class="sc">%&gt;%</span></span>
+<span id="cb24-199"><a href="#cb24-199" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.exclude</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb24-200"><a href="#cb24-200" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>year, <span class="at">names_to =</span> <span class="st">"sentiment"</span>,<span class="at">values_to =</span> <span class="st">"mean"</span>)</span>
+<span id="cb24-201"><a href="#cb24-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-202"><a href="#cb24-202" aria-hidden="true" tabindex="-1"></a><span class="do">##graphique</span></span>
+<span id="cb24-203"><a href="#cb24-203" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gen_sent2,<span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>mean,<span class="at">group=</span>sentiment)) <span class="sc">+</span></span>
+<span id="cb24-204"><a href="#cb24-204" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>sentiment), <span class="at">linewidth=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb24-205"><a href="#cb24-205" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb24-206"><a href="#cb24-206" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"lightgreen"</span>))</span>
 <span id="cb24-207"><a href="#cb24-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-208"><a href="#cb24-208" aria-hidden="true" tabindex="-1"></a>Maintenant, on va s'intéresser aux mots.</span>
+<span id="cb24-208"><a href="#cb24-208" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb24-209"><a href="#cb24-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-210"><a href="#cb24-210" aria-hidden="true" tabindex="-1"></a><span class="fu"># Nuage de mots comparés</span></span>
+<span id="cb24-210"><a href="#cb24-210" aria-hidden="true" tabindex="-1"></a>Maintenant, on va s'intéresser aux mots.</span>
 <span id="cb24-211"><a href="#cb24-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-212"><a href="#cb24-212" aria-hidden="true" tabindex="-1"></a><span class="fu">## En fonction des années</span></span>
+<span id="cb24-212"><a href="#cb24-212" aria-hidden="true" tabindex="-1"></a><span class="fu"># Nuage de mots comparés</span></span>
 <span id="cb24-213"><a href="#cb24-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-214"><a href="#cb24-214" aria-hidden="true" tabindex="-1"></a>On refait les manipulations préliminaires :</span>
+<span id="cb24-214"><a href="#cb24-214" aria-hidden="true" tabindex="-1"></a><span class="fu">## En fonction des années</span></span>
 <span id="cb24-215"><a href="#cb24-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-216"><a href="#cb24-216" aria-hidden="true" tabindex="-1"></a><span class="in">```{r init}</span></span>
-<span id="cb24-217"><a href="#cb24-217" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span>data<span class="sc">%&gt;%</span></span>
-<span id="cb24-218"><a href="#cb24-218" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year2=</span><span class="fu">case_when</span>(year<span class="sc">&lt;</span><span class="dv">2017</span><span class="sc">~</span><span class="st">"2013-2016"</span>,</span>
-<span id="cb24-219"><a href="#cb24-219" aria-hidden="true" tabindex="-1"></a>                         year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2017</span><span class="sc">:</span><span class="dv">2019</span>)<span class="sc">~</span><span class="st">"2017-2019"</span>,</span>
-<span id="cb24-220"><a href="#cb24-220" aria-hidden="true" tabindex="-1"></a>                         <span class="at">.default=</span><span class="fu">as.character</span>(year)))</span>
-<span id="cb24-221"><a href="#cb24-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-222"><a href="#cb24-222" aria-hidden="true" tabindex="-1"></a>corpus_oiseaux<span class="ot">&lt;-</span><span class="fu">corpus</span>(data, <span class="at">text_field =</span> <span class="st">"comments"</span>)</span>
+<span id="cb24-216"><a href="#cb24-216" aria-hidden="true" tabindex="-1"></a>On refait les manipulations préliminaires :</span>
+<span id="cb24-217"><a href="#cb24-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-218"><a href="#cb24-218" aria-hidden="true" tabindex="-1"></a><span class="in">```{r init}</span></span>
+<span id="cb24-219"><a href="#cb24-219" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span>data<span class="sc">%&gt;%</span></span>
+<span id="cb24-220"><a href="#cb24-220" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year2=</span><span class="fu">case_when</span>(year<span class="sc">&lt;</span><span class="dv">2017</span><span class="sc">~</span><span class="st">"2013-2016"</span>,</span>
+<span id="cb24-221"><a href="#cb24-221" aria-hidden="true" tabindex="-1"></a>                         year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2017</span><span class="sc">:</span><span class="dv">2019</span>)<span class="sc">~</span><span class="st">"2017-2019"</span>,</span>
+<span id="cb24-222"><a href="#cb24-222" aria-hidden="true" tabindex="-1"></a>                         <span class="at">.default=</span><span class="fu">as.character</span>(year)))</span>
 <span id="cb24-223"><a href="#cb24-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-224"><a href="#cb24-224" aria-hidden="true" tabindex="-1"></a>tok<span class="ot">&lt;-</span><span class="fu">tokens</span>(corpus_oiseaux, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>, <span class="at">remove_numbers =</span> <span class="cn">TRUE</span>, <span class="at">remove_symbols =</span> <span class="cn">TRUE</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb24-225"><a href="#cb24-225" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tokens_remove</span>(<span class="fu">stopwords</span>(<span class="st">"fr"</span>))</span>
-<span id="cb24-226"><a href="#cb24-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-227"><a href="#cb24-227" aria-hidden="true" tabindex="-1"></a>dfm<span class="ot">&lt;-</span><span class="fu">dfm</span>(tok)</span>
+<span id="cb24-224"><a href="#cb24-224" aria-hidden="true" tabindex="-1"></a>corpus_oiseaux<span class="ot">&lt;-</span><span class="fu">corpus</span>(data, <span class="at">text_field =</span> <span class="st">"comments"</span>)</span>
+<span id="cb24-225"><a href="#cb24-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-226"><a href="#cb24-226" aria-hidden="true" tabindex="-1"></a>tok<span class="ot">&lt;-</span><span class="fu">tokens</span>(corpus_oiseaux, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>, <span class="at">remove_numbers =</span> <span class="cn">TRUE</span>, <span class="at">remove_symbols =</span> <span class="cn">TRUE</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb24-227"><a href="#cb24-227" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tokens_remove</span>(<span class="fu">stopwords</span>(<span class="st">"fr"</span>))</span>
 <span id="cb24-228"><a href="#cb24-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-229"><a href="#cb24-229" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-229"><a href="#cb24-229" aria-hidden="true" tabindex="-1"></a>dfm<span class="ot">&lt;-</span><span class="fu">dfm</span>(tok)</span>
 <span id="cb24-230"><a href="#cb24-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-231"><a href="#cb24-231" aria-hidden="true" tabindex="-1"></a>Comparons les mots en fonction des années :</span>
+<span id="cb24-231"><a href="#cb24-231" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb24-232"><a href="#cb24-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-233"><a href="#cb24-233" aria-hidden="true" tabindex="-1"></a><span class="in">```{r wc_year}</span></span>
+<span id="cb24-233"><a href="#cb24-233" aria-hidden="true" tabindex="-1"></a>Comparons les mots en fonction des années :</span>
 <span id="cb24-234"><a href="#cb24-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-235"><a href="#cb24-235" aria-hidden="true" tabindex="-1"></a>dfmgp<span class="ot">&lt;-</span><span class="fu">dfm_group</span>(dfm, <span class="at">groups =</span> year2)</span>
-<span id="cb24-236"><a href="#cb24-236" aria-hidden="true" tabindex="-1"></a>dfmgp</span>
-<span id="cb24-237"><a href="#cb24-237" aria-hidden="true" tabindex="-1"></a><span class="co">#On peut aussi passer la fonction directement en transformant en dfm avec l'option groups : dfm(tok, groups="year")</span></span>
-<span id="cb24-238"><a href="#cb24-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-239"><a href="#cb24-239" aria-hidden="true" tabindex="-1"></a><span class="fu">textplot_wordcloud</span>(dfmgp, <span class="at">comparison=</span><span class="cn">TRUE</span>, <span class="at">max_words =</span> <span class="dv">200</span>)</span>
+<span id="cb24-235"><a href="#cb24-235" aria-hidden="true" tabindex="-1"></a><span class="in">```{r wc_year}</span></span>
+<span id="cb24-236"><a href="#cb24-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-237"><a href="#cb24-237" aria-hidden="true" tabindex="-1"></a>dfmgp<span class="ot">&lt;-</span><span class="fu">dfm_group</span>(dfm, <span class="at">groups =</span> year2)</span>
+<span id="cb24-238"><a href="#cb24-238" aria-hidden="true" tabindex="-1"></a>dfmgp</span>
+<span id="cb24-239"><a href="#cb24-239" aria-hidden="true" tabindex="-1"></a><span class="co">#On peut aussi passer la fonction directement en transformant en dfm avec l'option groups : dfm(tok, groups="year")</span></span>
 <span id="cb24-240"><a href="#cb24-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-241"><a href="#cb24-241" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-241"><a href="#cb24-241" aria-hidden="true" tabindex="-1"></a><span class="fu">textplot_wordcloud</span>(dfmgp, <span class="at">comparison=</span><span class="cn">TRUE</span>, <span class="at">max_words =</span> <span class="dv">200</span>)</span>
 <span id="cb24-242"><a href="#cb24-242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-243"><a href="#cb24-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-244"><a href="#cb24-244" aria-hidden="true" tabindex="-1"></a><span class="fu">## En fonction des sentiments</span></span>
+<span id="cb24-243"><a href="#cb24-243" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-244"><a href="#cb24-244" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-245"><a href="#cb24-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-246"><a href="#cb24-246" aria-hidden="true" tabindex="-1"></a>Pour comparer en fonction des sentiments, il faut accéder au dictionnaire NRC (en français) (il y a des fonctions simplifiées pour les dictionnaires en anglais) :</span>
+<span id="cb24-246"><a href="#cb24-246" aria-hidden="true" tabindex="-1"></a><span class="fu">## En fonction des sentiments</span></span>
 <span id="cb24-247"><a href="#cb24-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-248"><a href="#cb24-248" aria-hidden="true" tabindex="-1"></a><span class="in">```{r comp_sent}</span></span>
-<span id="cb24-249"><a href="#cb24-249" aria-hidden="true" tabindex="-1"></a>dic_nrc<span class="ot">&lt;-</span><span class="fu">read_xlsx</span>(<span class="st">"NRCfr.xlsx"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb24-250"><a href="#cb24-250" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>word,<span class="at">names_to =</span> <span class="st">"sentiment"</span>, <span class="at">values_to=</span><span class="st">"value"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb24-251"><a href="#cb24-251" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(value<span class="sc">==</span><span class="dv">1</span>, word<span class="sc">!=</span><span class="st">"NO TRANSLATION"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb24-252"><a href="#cb24-252" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>value)</span>
-<span id="cb24-253"><a href="#cb24-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-254"><a href="#cb24-254" aria-hidden="true" tabindex="-1"></a>sent_term<span class="ot">&lt;-</span><span class="fu">convert</span>(dfm,<span class="at">to=</span><span class="st">"data.frame"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb24-255"><a href="#cb24-255" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>doc_id)<span class="sc">%&gt;%</span></span>
-<span id="cb24-256"><a href="#cb24-256" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(), <span class="at">names_to=</span><span class="st">"word"</span>, <span class="at">values_to=</span><span class="st">"value"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb24-257"><a href="#cb24-257" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(value<span class="sc">!=</span><span class="dv">0</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb24-258"><a href="#cb24-258" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">value=</span><span class="fu">sum</span>(value), <span class="at">.by=</span>word)<span class="sc">%&gt;%</span></span>
-<span id="cb24-259"><a href="#cb24-259" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(dic_nrc)<span class="sc">%&gt;%</span></span>
-<span id="cb24-260"><a href="#cb24-260" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(<span class="at">n=</span><span class="dv">10</span>, <span class="at">by=</span>sentiment, <span class="at">order_by =</span> value, <span class="at">with_ties=</span>F)</span>
-<span id="cb24-261"><a href="#cb24-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-262"><a href="#cb24-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-263"><a href="#cb24-263" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sent_term, <span class="fu">aes</span>(<span class="fu">reorder</span>(word, value), value, <span class="at">fill =</span> sentiment)) <span class="sc">+</span></span>
-<span id="cb24-264"><a href="#cb24-264" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb24-265"><a href="#cb24-265" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sentiment, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
-<span id="cb24-266"><a href="#cb24-266" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Contribution to sentiment"</span>,</span>
-<span id="cb24-267"><a href="#cb24-267" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb24-268"><a href="#cb24-268" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
-<span id="cb24-269"><a href="#cb24-269" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb24-270"><a href="#cb24-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-271"><a href="#cb24-271" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-272"><a href="#cb24-272" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-248"><a href="#cb24-248" aria-hidden="true" tabindex="-1"></a>Pour comparer en fonction des sentiments, il faut accéder au dictionnaire NRC (en français) (il y a des fonctions simplifiées pour les dictionnaires en anglais) :</span>
+<span id="cb24-249"><a href="#cb24-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-250"><a href="#cb24-250" aria-hidden="true" tabindex="-1"></a><span class="in">```{r comp_sent}</span></span>
+<span id="cb24-251"><a href="#cb24-251" aria-hidden="true" tabindex="-1"></a>dic_nrc<span class="ot">&lt;-</span><span class="fu">read_xlsx</span>(<span class="st">"NRCfr.xlsx"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb24-252"><a href="#cb24-252" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>word,<span class="at">names_to =</span> <span class="st">"sentiment"</span>, <span class="at">values_to=</span><span class="st">"value"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb24-253"><a href="#cb24-253" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(value<span class="sc">==</span><span class="dv">1</span>, word<span class="sc">!=</span><span class="st">"NO TRANSLATION"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb24-254"><a href="#cb24-254" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>value)</span>
+<span id="cb24-255"><a href="#cb24-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-256"><a href="#cb24-256" aria-hidden="true" tabindex="-1"></a>sent_term<span class="ot">&lt;-</span><span class="fu">convert</span>(dfm,<span class="at">to=</span><span class="st">"data.frame"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb24-257"><a href="#cb24-257" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>doc_id)<span class="sc">%&gt;%</span></span>
+<span id="cb24-258"><a href="#cb24-258" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(), <span class="at">names_to=</span><span class="st">"word"</span>, <span class="at">values_to=</span><span class="st">"value"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb24-259"><a href="#cb24-259" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(value<span class="sc">!=</span><span class="dv">0</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb24-260"><a href="#cb24-260" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">value=</span><span class="fu">sum</span>(value), <span class="at">.by=</span>word)<span class="sc">%&gt;%</span></span>
+<span id="cb24-261"><a href="#cb24-261" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(dic_nrc)<span class="sc">%&gt;%</span></span>
+<span id="cb24-262"><a href="#cb24-262" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(<span class="at">n=</span><span class="dv">10</span>, <span class="at">by=</span>sentiment, <span class="at">order_by =</span> value, <span class="at">with_ties=</span>F)</span>
+<span id="cb24-263"><a href="#cb24-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-264"><a href="#cb24-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-265"><a href="#cb24-265" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sent_term, <span class="fu">aes</span>(<span class="fu">reorder</span>(word, value), value, <span class="at">fill =</span> sentiment)) <span class="sc">+</span></span>
+<span id="cb24-266"><a href="#cb24-266" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb24-267"><a href="#cb24-267" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sentiment, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb24-268"><a href="#cb24-268" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Contribution to sentiment"</span>,</span>
+<span id="cb24-269"><a href="#cb24-269" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb24-270"><a href="#cb24-270" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
+<span id="cb24-271"><a href="#cb24-271" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb24-272"><a href="#cb24-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-273"><a href="#cb24-273" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-274"><a href="#cb24-274" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

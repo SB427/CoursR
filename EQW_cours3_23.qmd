@@ -18,11 +18,13 @@ format:
     toc: true
     number-sections: true
     toc-location: left
+    css: styles.css
 execute: 
   echo: true
   message: false
   warning: false
 editor: visual
+
 ---
 
 ```{r setup, include=TRUE,output=FALSE}
