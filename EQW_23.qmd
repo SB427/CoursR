@@ -3,14 +3,16 @@ title: "Etudes qualitatives sur le web"
 subtitle: "M2 Marketing digital"
 author: "Sophie Balech"
 institute: "IAE Amiens <br/> sophie.balech@u-picardie.fr"
-date: 2023-10-02
+date: 2024-10-23
+date-format: "DD/MM/YYYY"
 format: 
   revealjs:
+    embed-resources: true
     slide-number: c
     logo: IAE_creteil.svg
-    footer: "Copyright (C) EQW SB23-24"
+    footer: "Copyright (C) EQW SB24-25"
     title-slide-attributes: 
-      data-background-color: "#FFD1DC"
+      data-background-color: "#d9f9da"
 execute: 
   echo: false
   warning: false
@@ -22,25 +24,25 @@ editor: visual
 
 -   Savoir constituer un corpus à partir de données web
 
--   Être capable d'analyser un corpus : 
+-   Être capable d'analyser un corpus :
 
-    - termes fréquents 
-   
-    - POS et dépendances nominales 
-  
-    - analyse du sentiment 
-  
-    - topics
-  
+    -   termes fréquents
+
+    -   POS et dépendances nominales
+
+    -   analyse du sentiment
+
+    -   topics
+
 -   Utiliser RStudio et le langage R
 
 ## Évaluation {.smaller}
 
--   Commune avec l'UE "Stratégies de distribution à l'ère de l'omnicanal"
+-   Commune avec l'UE "Stratégies de distribution à l'ère du cross-canal"
 
 -   Réalisation d'une netnographie par groupe de 2 (à 3) étudiants
 
--   À rendre le 11/12/2023
+-   À rendre pour le dernier cours de "Stratégies de distribution à l'ère du cross-canal"
 
 Une prise de hauteur est attendue dans la conduite de cette analyse, en mobilisant des concepts et cadres théoriques vus dans le cours "Stratégies de distribution à l'ère de l'omnicanal".
 
@@ -51,18 +53,18 @@ Une prise de hauteur est attendue dans la conduite de cette analyse, en mobilisa
 -   **Réaliser une netnographie** :
 
     -   **Choisir une enseigne de distribution**
-    
+
     -   **Collecter et analyser les avis en ligne** postés par les clients sur le site de l'enseigne ou sur les forums clients
-    
+
     -   **Proposer des recommandations** à l'enseigne pour répondre aux attentes des clients.
-    
+
 -   Le rendu prendra la forme :
 
     -   D'un rapport réalisé au format Quarto et publié en html, s'appuyant sur les outils méthodologiques abordés dans l'UE "Études qualitatives sur le web"
-    
-    -   À rendre le 11/12/2023
-    
-    -   D'un exposé de 15 minutes lors de la séance du 11/12/2023
+
+    -   À rendre pour la dernière séance de "Stratégies de distribution à l'ère du cross-canal"
+
+    -   D'un exposé de 15 minutes lors de la dernière séance de "Stratégies de distribution à l'ère du cross-canal"
 
 ## Plan du cours {.smaller}
 
@@ -351,3 +353,78 @@ La roue des émotions de Plutchik (1980) :
 Outil recommandé : [WebScraper](https://webscraper.io/)
 
 ![](webscraper.png)
+
+## Constituer son corpus {.scrollable}
+
+Ou directement en R
+
+```{r}
+#| eval: false
+#| echo: true
+library(rvest)
+library(tidyverse)
+
+reviews <- NULL
+for (j in 1: 4){
+    url<-paste0("https://fr.trustpilot.com/review/oiseaux-mania.com?page=",j)
+    # Sys.sleep(5)
+    page<-read_html(url)
+      
+    review_card <- page %>%
+      html_elements("div.styles_reviewCardInner__EwDq2")
+      
+      name <- review_card %>%
+        html_element("span.typography_heading-xxs__QKBS8.typography_appearance-default__AAY17") %>%
+        html_text()
+      
+      rating <- review_card %>%
+        html_elements("div.star-rating_starRating__4rrcf.star-rating_medium__iN6Ty") %>%
+        html_element("img")%>%
+        html_attr("alt")%>%
+        str_extract("[:digit:]")
+      
+      published <- review_card%>%
+        html_elements(".styles_reviewContentwrapper__zH_9M")%>%
+        html_element("p.typography_body-m__xgxZ_")%>%
+        html_text()%>%
+        str_remove("Date de l'expérience: ")
+      
+      verified <- review_card %>%
+        html_element(".styles_detailsIcon__yqwWi") %>%
+        html_text()
+      
+      title <- review_card %>%
+        html_element("h2")%>%
+        html_text()
+      
+      content <- review_card%>%
+        html_elements(".styles_reviewContentwrapper__zH_9M")%>%
+        html_element("p.typography_body-l__KUYFJ") %>%
+        html_text2()
+      
+      
+      reviews <- rbind(reviews, data.frame(
+        name = name, 
+        rating = rating,
+        published = published,
+        verified = verified,
+        title = title, 
+        content = content
+      ))
+      
+    j<-j+1
+  }
+
+reviews<-reviews%>%
+  mutate(comments=case_when(
+    is.na(content)==TRUE~title,
+    str_detect(title, "…")==TRUE ~ content,
+    str_equal(title, str_sub(content, start=1, end=str_count(title)))==TRUE~content,
+    .default = paste0(title,". " ,content))
+  )
+                            
+                            
+                            
+
+```
+
